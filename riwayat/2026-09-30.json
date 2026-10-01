@@ -1,0 +1,682 @@
+{
+ "rm:1017416": {
+  "n": "Lucia",
+  "rm": "01017416",
+  "k": "4.1",
+  "r": "RB1",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "TPN",
+   "Clear water 20-40cc/4jam"
+  ],
+  "tx": [
+   "NaCl 0.9% 20tpm",
+   "Ceftriaxone/12jam",
+   "Omeprazole/12jam",
+   "Vit K/12jam",
+   "As. Traneksamat/12jam",
+   "NAC drip/8jam",
+   "Paracetamol/8jam",
+   "Cek DL, Ur/Cr, elektrolit"
+  ]
+ },
+ "rm:1017925": {
+  "n": "Ahmad Dalil Drs",
+  "rm": "01017925",
+  "k": "1.16",
+  "r": "RA6",
+  "dpjp": "dr. Safruddin",
+  "tx": [
+   "Hospitalized Neurology",
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:1017920": {
+  "n": "Binto",
+  "rm": "01017920",
+  "k": "1.5.2",
+  "r": "RB2",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "Diet DM"
+  ],
+  "tx": [
+   "Hosp. GEH",
+   "NaCl 0.9% 20tpm",
+   "Omeprazole/12jam",
+   "Ondansetron/8jam",
+   "Paracetamol/8jam"
+  ]
+ },
+ "rm:819599": {
+  "n": "Setiawan",
+  "rm": "00819599",
+  "k": "2.2.2",
+  "r": "RB2",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9% 20tpm",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "n:annyhotnidasimatupang": {
+  "n": "Anny Hotnida Simatupang",
+  "rm": "",
+  "k": "2.1",
+  "r": "RB2",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "NGT, puasa",
+   "Diet cair 6x50cc"
+  ],
+  "tx": [
+   "Omeprazole 80mg IV extra + drip 8mg/jam",
+   "As. Traneksamat/8jam",
+   "Vit K/8jam",
+   "NAC/8jam",
+   "Sukralfat 4xCI",
+   "Cek viral marker",
+   "Gastroskopi ligasi"
+  ]
+ },
+ "rm:1001139": {
+  "n": "Reban",
+  "rm": "01001139",
+  "k": "3.5.2",
+  "r": "RB2",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9% 20tpm",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:1014710": {
+  "n": "Ervyzar Muhamad",
+  "rm": "01014710",
+  "k": "3.4.1",
+  "r": "RB2",
+  "dpjp": "dr. Safruddin"
+ },
+ "rm:937757": {
+  "n": "Saddam Mohamad Husein",
+  "rm": "00937757",
+  "k": "4.3",
+  "r": "RB3",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "Lunak"
+  ],
+  "tx": [
+   "OAT (RHZE)",
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:936103": {
+  "n": "Jerry",
+  "rm": "00936103",
+  "k": "17.2",
+  "r": "RB3",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "Puasa"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Koreksi hipokalemia",
+   "Albumin drip"
+  ]
+ },
+ "n:desiratnasari": {
+  "n": "Desi Ratna Sari",
+  "rm": "",
+  "k": "8.2",
+  "r": "RB3",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "Puasa"
+  ],
+  "tx": [
+   "Persiapan operasi",
+   "Fleet enema",
+   "Puasa",
+   "IV line"
+  ]
+ },
+ "rm:992395": {
+  "n": "Mariahma Manik",
+  "rm": "00992395",
+  "k": "305.2",
+  "r": "RB6",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9% 20tpm",
+   "Ceftriaxone/12jam",
+   "Metronidazole/8jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:994693": {
+  "n": "Burhanuddin",
+  "rm": "00994693",
+  "k": "310.1",
+  "r": "RB6",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9% 20tpm",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "MST 2x10mg"
+  ]
+ },
+ "rm:942780": {
+  "n": "Indra Gunawan",
+  "rm": "00942780",
+  "k": "3.15.2",
+  "r": "RB6",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "Diet DM lunak"
+  ],
+  "tx": [
+   "NaCl 0.9% 20tpm",
+   "Meropenem/8jam",
+   "Omeprazole/12jam",
+   "Paracetamol/8jam",
+   "Novorapid 3x8 IU",
+   "Lantus 1x10 IU",
+   "NAC/8jam",
+   "UDCA 3x250mg",
+   "Curcuma 3x1",
+   "Heparin 2x5000 IU SC",
+   "Sucralfat syr 4xCI",
+   "Levofloxacin 1x750mg (TS PTI)",
+   "Ambroxol 3xCI (TS PTI)"
+  ]
+ },
+ "rm:967613": {
+  "n": "Maimunah",
+  "rm": "00967613",
+  "k": "3.13.4",
+  "r": "RB6",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "M1"
+  ],
+  "tx": [
+   "NaCl 0.9% 20tpm",
+   "Ceftriaxone/12jam",
+   "As. Traneksamat/8jam",
+   "Vit K/12jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:1017244": {
+  "n": "Hikmat Gulo",
+  "rm": "01017244",
+  "k": "3.12.4",
+  "r": "RB6",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "Puasa"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Persiapan operasi",
+   "Konsul anestesi"
+  ]
+ },
+ "rm:998015": {
+  "n": "Ledi Suriani Berutu",
+  "rm": "00998015",
+  "k": "6.14",
+  "r": "Pav 6",
+  "dpjp": "dr. Safruddin",
+  "d": [
+   "M1 via NGT"
+  ],
+  "tx": [
+   "NaCl 0.9% 20tpm",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Vit K/12jam",
+   "As. Traneksamat/12jam",
+   "MST 2x10mg",
+   "Laktulosa 3xCI",
+   "Salep dekubitus"
+  ]
+ },
+ "n:rinanovaliasurbakti": {
+  "n": "Rina Novalia Surbakti",
+  "rm": "",
+  "k": "4.4",
+  "r": "RB1",
+  "dpjp": "dr. Adi",
+  "d": [
+   "Clear water 20-40cc/4jam"
+  ],
+  "tx": [
+   "NaCl 0.9% 20tpm",
+   "Ceftriaxone/12jam",
+   "Metronidazole/8jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Pertahankan rectal tube 1x24jam"
+  ]
+ },
+ "rm:1019203": {
+  "n": "Roslila",
+  "rm": "01019203",
+  "k": "206",
+  "r": "Ruang 206",
+  "dpjp": "dr. Adi",
+  "d": [
+   "Puasa"
+  ],
+  "tx": [
+   "Ceftriaxone 2x1",
+   "Gentamycin 2x1",
+   "Metronidazole 3x1",
+   "Ranitidine 2x1",
+   "Paracetamol 3x1"
+  ]
+ },
+ "rm:1017459": {
+  "n": "Tukmaida Sibarani",
+  "rm": "01017459",
+  "k": "501",
+  "r": "Pav 5",
+  "dpjp": "dr. Adi",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Koreksi hipokalemia",
+   "Ceftriaxone/12jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:1010700": {
+  "n": "Rosmaida Siagian",
+  "rm": "01010700",
+  "k": "5.02",
+  "r": "Pav 5",
+  "dpjp": "dr. Adi",
+  "d": [
+   "Puasa → Diet bertahap"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Paracetamol/8jam"
+  ]
+ },
+ "rm:936990": {
+  "n": "Kadarni",
+  "rm": "00936990",
+  "k": "5.17",
+  "r": "Pav 5",
+  "dpjp": "dr. Adi",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9% 20tpm",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:993990": {
+  "n": "Dede",
+  "rm": "00993990",
+  "k": "6.05",
+  "r": "Pav 6",
+  "dpjp": "dr. Adi",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:1010755": {
+  "n": "Aminuddin",
+  "rm": "01010755",
+  "k": "6.09",
+  "r": "Pav 6",
+  "dpjp": "dr. Adi",
+  "d": [
+   "Diet DM"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Peinlos/8jam",
+   "Omeprazole/12jam",
+   "Novorapid 3x8 IU",
+   "Albumin drip"
+  ]
+ },
+ "rm:1012012": {
+  "n": "Zunaidah",
+  "rm": "01012012",
+  "k": "6.13",
+  "r": "Pav 6",
+  "dpjp": "dr. Adi",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Vit K/12jam",
+   "Ranitidine/12jam",
+   "UDCA 3x250mg",
+   "Albumin drip"
+  ]
+ },
+ "rm:1013005": {
+  "n": "Laba Balige Sinaga",
+  "rm": "01013005",
+  "k": "3.5.3",
+  "r": "RB2",
+  "dpjp": "dr. Adi",
+  "d": [
+   "Diet DM, Rendah Protein"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Novorapid 3x6 IU",
+   "NPWT (Negative Pressure)"
+  ]
+ },
+ "rm:982709": {
+  "n": "Rusmelina Girsang",
+  "rm": "00982709",
+  "k": "9.3",
+  "r": "RB3",
+  "dpjp": "dr. Adi",
+  "d": [
+   "Clear water"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:1006990": {
+  "n": "Supiati",
+  "rm": "01006990",
+  "k": "14.2",
+  "r": "RB3",
+  "dpjp": "dr. Adi",
+  "d": [
+   "M1"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Albumin drip"
+  ]
+ },
+ "rm:1008735": {
+  "n": "Meida Sinambela",
+  "rm": "01008735",
+  "k": "302.1",
+  "r": "RB6",
+  "dpjp": "dr. Adi",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "Obat pulang",
+   "Ceftriaxone/12jam (stop)",
+   "Ketorolac/8jam (stop)",
+   "Ranitidine/12jam (stop)",
+   "Edukasi pulang"
+  ]
+ },
+ "rm:1014987": {
+  "n": "Shandy Ariston Napitupulu",
+  "rm": "01014987",
+  "k": "304.1",
+  "r": "RB6",
+  "dpjp": "dr. Adi",
+  "d": [
+   "Diet Rendah Protein"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "MST 2x10mg",
+   "HD rutin"
+  ]
+ },
+ "rm:1017052": {
+  "n": "Achmad Krinus",
+  "rm": "01017052",
+  "k": "304.3",
+  "r": "RB6",
+  "dpjp": "dr. Adi",
+  "d": [
+   "Puasa → Diet bertahap"
+  ],
+  "tx": [
+   "Futrolit/24jam",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Puasa",
+   "Konsul anestesi CVC"
+  ]
+ },
+ "rm:797263": {
+  "n": "Siti Mariyam",
+  "rm": "00797263",
+  "k": "307.2",
+  "r": "RB6",
+  "dpjp": "dr. Adi",
+  "d": [
+   "Diet Rendah Protein"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Transfusi PRC"
+  ]
+ },
+ "rm:1016116": {
+  "n": "Marasi Manalu",
+  "rm": "01016116",
+  "k": "3.11.1",
+  "r": "RB6",
+  "dpjp": "dr. Adi",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "Obat pulang",
+   "Edukasi pulang"
+  ]
+ },
+ "rm:1017080": {
+  "n": "Rahmad Fauzi",
+  "rm": "01017080",
+  "k": "3.3.2",
+  "r": "RB2",
+  "dpjp": "dr. Siti Fathiya",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Koreksi Na + K",
+   "Ceftriaxone/12jam",
+   "Ranitidine/12jam",
+   "Transfusi PRC"
+  ]
+ },
+ "rm:1004500": {
+  "n": "Ayunan",
+  "rm": "01004500",
+  "k": "3.3.4",
+  "r": "RB2",
+  "dpjp": "dr. Siti Fathiya",
+  "d": [
+   "Diet DM"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Novorapid 3x6 IU"
+  ]
+ },
+ "rm:984116": {
+  "n": "Titian",
+  "rm": "00984116",
+  "k": "3.13.1",
+  "r": "RB6",
+  "dpjp": "dr. Siti Fathiya",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:1017247": {
+  "n": "Erni Br Sidabutar",
+  "rm": "01017247",
+  "k": "2.1",
+  "r": "RB3",
+  "dpjp": "dr. Edwin",
+  "d": [
+   "M1"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Metronidazole/8jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Albumin drip"
+  ]
+ },
+ "rm:971330": {
+  "n": "Fredi Simangunsong",
+  "rm": "00971330",
+  "k": "15.1",
+  "r": "RB3",
+  "dpjp": "dr. Edwin",
+  "d": [
+   "Diet DM"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Novorapid 3x8 IU",
+   "Rawat luka harian"
+  ]
+ },
+ "rm:1014458": {
+  "n": "Rospita Br Sibuea",
+  "rm": "01014458",
+  "k": "314.1",
+  "r": "RB6",
+  "dpjp": "dr. Edwin",
+  "d": [
+   "M1"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam",
+   "Koreksi K"
+  ]
+ },
+ "rm:795116": {
+  "n": "Milhasanah",
+  "rm": "00795116",
+  "k": "6.03",
+  "r": "Pav 6",
+  "dpjp": "dr. Budi",
+  "d": [
+   "M2"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Ceftriaxone/12jam",
+   "Ketorolac/8jam",
+   "Ranitidine/12jam"
+  ]
+ },
+ "rm:1004547": {
+  "n": "Zulpan",
+  "rm": "01004547",
+  "k": "3.3.3",
+  "r": "RB2",
+  "dpjp": "dr. Budi",
+  "d": [
+   "M1"
+  ],
+  "tx": [
+   "NaCl 0.9%",
+   "Smokabiven ekstra 1 fls (hari ini)",
+   "Ceftriaxone/12jam",
+   "Omeprazole/12jam",
+   "Ondansetron/8jam"
+  ]
+ }
+}

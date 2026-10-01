@@ -1,0 +1,628 @@
+document:
+RB 6
+
+Total Pasien : 13
+dr. Siti : 0
+dr. Adi : 7
+dr. Safruddin : 2
+dr. Budi : 0
+dr. Edwin : 2
+
+3.10.2
+Iskandar/Lk/66th/00897782
+DPJP: dr. Adi Muradi Muhar, Sp.B-KBD
+Tanggal masuk: 30/09/2026
+Tanggal operasi: 
+Dx: Post LAR + Liver Metastectomy (April 2026) d/t well diferentiated Adenocarcinoma Recti 10cm ACL + Post Chemotheraphy 8 Cycles + Radiotherapy 25 Cycles
+
+Lab (30/09/2026):
+Hb/Ht/Leu/Plt		: 10.0/30.7//8.460/119.000
+Albumin		: 2.56
+Na/K/Cl		: 136/4.1/106
+GDS			: 117
+CEA			: 3.380
+AFP			: 1.21
+CA 19-9		: 1.729
+Ur/Cr/eGFR		: 56/0.94/88.95
+Bil.total/direk		: 3.38/2.53
+
+Hasil Radiologi
+Foto Abdomen (30/09/2026): *susul bacaan*
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026093018183066003975
+Foto Thoraks 30/09/2026): *susul bacaan*
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026093017354748490341
+CT Scan Abdomen Kontras (03/02/2026)
+Lesi densitas heterogen pasca kontras, batas tidak tegas, tepi iireguler pada kedua lobus hepar, ukuran terbesar +/- 4,8 x 3,7 x 4,8 cm pada lobus kiri hepar ec metastasis.
+Kista spleen.
+Hiperplasia prostat  disertai kalsifikasi prostat.
+Sistitis. 
+PACS: https://pacs.rsham.co.id/patient/samples/externalcontroller/viewer.html?study=1.3.46.670589.33.1.63874172550384120900001.4994683941090600591
+Hasil IDT
+Kolonoskopi (02/09/2026): Kolitis + Hemorrhoid interna dan externa
+USG Abdomen (31/08/2026): Liver metastasis dd HCC + Splenomegaly + Ascites
+Hasil PA
+PA (02/09/2026):  Rectosigmoid, biopsy : Kolitis kronis non-spesifik dengan destruksi kripta. 
+PA Histopatologi Besar (29/04/2026): Colon descendens : Adenocarcinoma dengan partial respon to therapy. Colon descendens distal : Tidak dijumpai sel tumor. Rectum distal : Tidak dijumpai sel tumor. Hepar : Positif anak sebar tumor ( Metastasis Adenocarcinoma ). 
+PA Jaringan Besar (30/10/2024): Colon descendens dan 10cm dari rektum : Well Differentiated Adenocarcinoma. 
+
+R/ - IVFD asering 20gtt/i
+- inj omeprazole/12 jam
+- Inj. Ranitidine/12 jam
+- Inj. Ketorolac/8 jam 
+I: CT Scan whole abdomen iv oral anal contrast
+3.11.4
+Sahdun Ritonga/Lk/57th/01012460
+DPJP: dr. Adi Muradi Muhar, Sp.B-KBD
+Tanggal masuk: 30/09/2026
+Tanggal operasi 01/10/2026
+Dx: End ileostomy pasca laparotomi eksplorasi ec fecal impacted di rectum + hernia insisional (diameter 84 mm) + post liver biopsy  
+R/ reversal stoma + hernioraphy  (01/10)
+ 
+PA (02/09/2026): Proses radang kronis non spesifik. 
+Lopografi (21/09/2026):
+ Kaliber colon transversum hingga descendens mengecil (disuse atrofi) dengan gambaran mikrocolon
+Herniasi incisional
+Stoma di hemiabdomen kanan.
+Saran Ct scan abdomen dengan kontras
+
+CT Scan Kontras Whole Abdomen  (06/08/2026): 
+Metastasis hepar.
+Kista multipel ginjal kanan.
+Nefrolitiasis multipel kanan.
+Defek herniasi struktur usus dan mesentrium pada midline abdomen, luas defek +/- 6.4 x 9 cm.
+Suspek fecal mass dengan retensi kontras pada daerah recto-sigmoid.
+Stoma regio abdomen sisi kanan terpasang.
+Spondilolistesis L5 ke anterior S1, sejauh +/- 18 (grade 1).
+3.11.3
+Ibnu Faruqi/Lk/30th/01019226
+DPJP: dr. Edwin Saleh Siregar, Sp.B., Subsp.BD(K)
+Tanggal masuk: 30/09/2026
+Tanggal operasi: 
+Dx: Cancer Pain + Adenocarcinoma Colon Sigmoid Tumor cT3N0M0 + Anemia (8.5)
+
+
+Lab (30/09/2026):
+Hb/Ht/Leu/Plt: 8.5/29.6/16.940/454.000
+GDS: 101
+Ur/Cr/eGFR: 18/0.73/125.31
+Na/K/Cl: 139/4.2/109
+Foto Thoraks (30/09/2026): Cardiomegaly 
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026093004040656829629
+
+I: Lanjutkan transfusi
+CT Abdomen with IV Oral Contrast from Inpatient Ward
+
+302.1
+Meida Sinambela/Pr/41th/00837626
+DPJP: dr. Adi Muradi Muhar, Sp.B-KBD
+Tanggal masuk: 26/09/2026
+Tanggal operasi:
+Dx: Post Laparotomy Ileoileal Anastomosis with Ileostomy Protective Double Barrel (July 2026) d/t Organ SSI + Post (L) Hemicolectomy (Mar 2026) d/t Adenocarcinoma cT2N0M0 + Post Chemotherapy 1 Cycle 
+
+Lab (29/09/2026) → post transfusi
+Hb/Ht/Leu/Plt		: 9.8/29.4/3.790/180.000
+
+Lab (26/09/2026)
+Hb/Ht/Leu/Plt		: 11.0/32.3/9.630/28.000
+GDS			: 127
+Ur/Cr/eGFR		: 26/1.19/58.91
+Na/K/Cl		: 138/3.2/111
+
+Foto Thoraks (26/09/2026): *susul bacaan*
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026092614155346607154
+CT Scan Kontras Abdomen Lengkap (15/06/2026): 
+Tak tampak gambaran massa pada colon descenden
+Hernia dinding anterior abdomen regio umbilical 
+Hepatomegaly
+Multiple nephrolithiasis bilateral
+Cyst ovarium kanan
+Spondylosis lumbal 
+PACS: https://pacs.rsham.co.id/patient/samples/externalcontroller/viewer.html?study=1.3.46.670589.33.1.63917115346527846100001.5075002636266804980
+
+P: 	
+- IVFD RL 20gt/i
+- IVFD Tutosol/24 jam
+- inj. ranitidine/12 jam
+- inj. ketorolac/8 jam
+
+I: PBJ hari ini (30/09)
+
+304.1
+Shandy Sheza/Lk/29th/00991343
+DPJP: dr. Adi Muradi Muhar, Sp.B-KBD
+Tanggal masuk: 27/09/2026
+Tanggal operasi:
+Dx: Cancer Pain + Post Drainase Asites (19 Sept 2026) d/t Massive Asites + Mucinous Adeno Ca Recti 9cm ACL cT4aN1M0 with Sigmoidostomy Diversion + Post Chemotherapy 8 Cycles + Radiotherapy 5 fr
+
+Lab (27/09/2026):
+Hb/Ht/Leu/Plt		: 13.3/39.1//3.910/132.000
+Na/K/Cl		: 137/3.3/99
+Ur/Cr/eGFR		: 25/0.50/141.68
+GDS			: 99
+
+Hasil Radiologi
+Foto Polos Abdomen (27/09/2026): Small bowel obstruction. 
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026092718003481397963
+Foto Thoraks (27/09/2026): Tak tampak kelainan signifikan pada jantung dan paru saat ini. 
+CT Scan Kontras Abdomen Lengkap (17/09/2026):
+Massa sirkumferensial irreguler dengan mesorectal fat stranding sekitar kesan malignant pada rectosigmoid, jarak dari anal verge +/- 9 cm sepanjang +/- 6 cm.
+Multiple suspicious lymphnodes regio obturator bilateral
+Sesuai AJCC TNM 9 T3N1bMx
+Ascites masif dengan suggestive peritoneal carcinomatosis.
+Efusi pleura bilateral dengan atelektasis kompresif kedua paru, sugestif metastasis pleura.
+Stoma pada hemiabdomen kiri bawah.
+Splenomegali.
+Simple cyst renal kiri.
+Fibrosis di segmen 9 paru kiri.
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=1.3.46.670589.33.1.63925271540095972800001.4928930106537704182
+
+Hasil PA
+PA (21/09/2026) cairan ascites: Negative for malignancy cell. Suatu inflammatory smear 
+PA (23/02/2026) cairan ascites: Inflammatory smear 
+
+R/ - IVFD RL 20gtt/i
+- IVFD Smofkabiven /24 jam
+- Inj. Ranitidine/12 jam
+- Inj. Ketorolac/8 jam
+- inj. Metoklopramide/12 jam
+- masuk
+kcl 2 flacon dalam d5% 20gtt/i
+
+4-3.3 x 80kg x 3 = 2 flacon kcl 
+
+I: 
+
+R/ Laparotomi eksplorasi emergency
+
+
+Diet TPN via CVC
+Washout harian
+
+304.3
+ACHMAD KRINUS IMANUEL GINTING/Lk/41th/01013941
+DPJP: dr. Adi Muradi Muhar, Sp.B-KBD
+Tanggal masuk: 29/09/2026
+Tanggal operasi:
+Dx: Post Ileostomy double barrel d/t Incomplete ASBO + Post Ileal resection + ileostomy double barrel (Aug 2026) d/t Diverticulum Meckle
+
+Lab (30/09/2026)
+Hb/Leu/Plt: 12.9/12.650/333.000
+Na/K/Cl: 139/4.2/104
+
+
+
+Lab (29/09/2026):
+Hb/Ht/Leu/Plt		: 14.4/44.1/32.830/373.000
+Ur/Cr/eGFR		: 30/0.91/106/73
+Na/K/Cl		: 139/4.7/106
+GDS			: 68
+
+Lab (20/09/2026):
+SGOT/SGPT			: 40/30
+Fe(SI)/TIBC			: 9/145
+Ferritin			: 69.60
+UIBC				: 136
+PT (P/K)			: 10.3/11.2
+INR				: 0.95
+Fibrinogen			: 235.2
+D-Dimer			: 0.96
+HbsAg/Anti HCV/HIV	: NR/NR/NR
+
+Hasil PA (24/08/2026): Divertikulum Meckel
+
+Hasil Radiologi
+Foto Thoraks (30/09/2026): *susul bacaan*
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026093013261564687704
+Foto Thoraks (29/09/2026): Roentgenologis cor dan pulmo dalam batas normal. 
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026092901425089526901
+Foto Abdomen (29/09/2026): Tidak tampak gambaran ileus maupun pneumoperitoneum saat ini. Stoma terpasang di hemiabdomen kanan bawah.
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026092901424918731649
+CT Scan Kontras Abdomen Lengkap (22/09/2026): 
+Tidak tampak fluid collection patologis di rongga peritoneum
+Tidak tampak pelebaran kaliber usu
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=1.3.46.670589.33.1.63925667089799505200001.4855213108668152919
+CT Angiografi Abdomen (18/08/2026): 
+Tak tampak jelas gambaran ekstravasasi kontras pada CTA abdomen saat ini
+Mixed plaque pada aorta abdominalis menyebabkan mild stenosis
+Efusi pericard minimal
+Multiple atypical lymph nodes pada mediastinum dan paraaorta
+Simple cyst segment VII hepar
+
+R/ 
+- IVFD RL 20 gtt/i
+- IVFD Smofkabiven/24 jam → kosong (30/09)
+- IVFD Futrolit/24 jam
+- Inj. Ranitidine/12 jam
+- Inj. Ketorolac/8 jam
+- Inj. Metoklopramide/12 jam
+- IVFD PCT/ 12 jam
+- Inj. Peinloss / 12 jam
+
+I: Susul jawaban TS Anestesi untuk pemasangan CVC
+Rencana Ileoileal anastomosis (Sabtu, 03/10/2026)
+Pasien puasa
+
+
+305.2
+Mariahma Sinaga/Pr/48thn/01018235
+DPJP: dr. SAFRUDDIN, Sp.B-KBD, MM
+Tanggal masuk: 22/09/2026
+Tanggal operasi: 22/09/2026, 29/09/2026
+Dx: Post Re-Laparatomy illeo caecectomy (POD2) d/t Leak Intestine with history laparotomy appendectomy emergency d/t acute appendicitis (POD-9)
+
+Lab (30/09/2026) → post operasi
+Hb/Ht/Leu/Plt		: 10.2/29.5/13.860/257.000
+Albumin		: 2.06
+Na/K/Cl		: 136/4.2/106
+
+Lab (23/09/2026) → post operasi
+Hb/Ht/Leu/Plt		: 11.7/34.9/10.910/272.000
+Albumin		: 3.35
+Na/K/Cl		: 145/4.0/106
+
+Lab (21/09/2026):
+Hb/Ht/Leu/Plt		: 12.7/37.4/25.080/293.000
+GDS			: 99
+Ur/Cr/eGFR		: 41/1.33/49.35
+Na/K/Cl		: 136/4.2/105
+
+Foto Thoraks (22/09/2026): *susul bacaan*
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026092201272840333178
+
+R/ 
+- IVFD RL 20gtt/i
+- IVFD Bfluid /24 jam
+- Metronidazole/8 jam
+- Seftriakson/12 jam
+- Gentamisin / 8 jam
+- Ranitidine/12 jam
+- Ketorolac/8 jam → sudah 7 hari ganti peinlos
+- IVFD PCT/8 jam 
+
+
+Diet: M1
+
+I: 
+Mobilisasi, mulai diet M1, buka tutup NGT 4:2 
+GV gulung-gulung
+
+307.2
+Siti Mariyam Sinaga/Pr/35th/01018992
+DPJP:  dr. Adi Muradi Muhar, Sp.B-KBD
+Tanggal masuk: 29/09/2026
+Tangal operasi:
+Dx: Myxofibrosarcoma o/t Abdomen GxcT4N0M0 
+
+Lab (30/09/2026): → post transfusi
+Hb/Ht/Leu/Plt		: 10.6/30.7/6.310/206.000
+
+
+Lab (28/09/2026):
+Hb/Leu/Plt		: 6.4/4.790/219.000
+Na/K/Cl		: 139/3.1/110
+Ur/Cr/eGFR		: 220/8.71/5.61
+
+Hasil PA (RSUD Arifin Achmad, 26/09/2024): Atypical Lipomatous Tumor
+Hasil PA (RSUD Arifin Achmad, 03/06/2025): Myxofibrosarcoma Retroperitoneal
+
+
+R/ 
+- IVFD RL 20 gtt/i
+- IVFD Tutosol/24 jam
+- Inj. Ranitidine/12 jam
+- Inj. Ketorolac/8 jam
+
+I:  CT Scan Abdomen Kontras hari ini (01/10)
+
+310.1
+Burhanuddin/Lk/75th/01018832
+DPJP: dr. SAFRUDDIN, Sp.B-KBD, MM
+Tanggal masuk: 27/09/2026
+Tanggal operasi: 
+Dx: Tumor pain + Intraabdominal tumor sugg Lymphoma + Anemia (6.3)
+
+Lab (29/09/2026) → post transfusi
+Hb/Ht/Leu/Plt		: 7.8/24.5/15.640/325.000
+
+Lab (27/09/2026):
+Hb/Ht/Leu/Plt		: 6.3/19.8/18.690/394.000
+GDS			: 78
+Ur/Cr/eGFR		: 36/0.60/100.47
+Na/K/Cl		: 135/4.6/100
+
+CT Scan Kontras Whole Abdomen (29/09/2026): *susul bacaan*
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=1.3.46.670589.33.1.63926271179301822200001.4694935451624714062
+
+R/ - IVFD RL 20gtt/i
+- IVFD Smofkabiven /24 jam
+- Inj. Ranitidine/12 jam
+- Inj. Ketorolac/8 jam
+
+I: Cek lab post transfusi (01/10)
+Susul bacaan CT Scan whole abdomen IV Contrast 
+
+3.11.1
+Marasi Manalu/Lk/41th/01017966
+DPJP: dr. Adi Muradi Muhar, Sp.B-KBD
+Tanggal masuk: 19/09/2026
+Tanggal operasi: 26/09/2026
+Dx: Post drainase ascites d/t Colon tumor sugg malignant cT3N0M0 (POD-4)
+
+Lab (27/09/2026) → post operasi
+Hb/Ht/Leu/Plt		: 14.0/41.2/8.340/182.000
+Albumin		: 3.11
+Na/K/Cl		: 139/3.3/101
+
+Lab (19/09/2026):
+Hb/Ht/Leu/Plt		: 16.5/47.6/10.350/332.000
+Ur/Cr/eGFR		: 53/1.12/84.64
+GDS			: 126
+Na/K/Cl		: 135/4.0/105
+PT (P/K)		: 10.9/11.30
+APTT (P/K)		: 21.3/24.4
+INR			: 1.01
+CEA			: 2.54
+Albumin		: 4.81
+HbsAg/HIV		: NR/NR
+SGOT/SGPT		: 33/19
+
+Hasil Radiologi
+CT Scan Kontras Abdomen Lengkap (22/09/2026):
+- Loculated ascites.
+- Spondilosis thorakolumbal.
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=1.3.46.670589.33.1.63925668518140201600001.5269396784768404946
+Foto Abdomen (19/09/2026): *susul hasil*
+PACS:https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026091913504960202076
+Foto Thoraks (19/09/2026): *susul hasil*
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026091913504906655033
+
+R/ 
+- IVFD RL 20 gtt/i
+- IVFD Tutosol/24 jam
+- Ranitidine 1 amp/12 jam
+- Ketorolac 1 amp/8 jam
+
+
+Jawaban GEH: 
+Acc rawat bersama dr. Ilhamd, Sp.PD, K-GEH
+Inj. Omeprazole 40 mg/iv/12 jam
+Inj. Metoklopramide 10 mg/IV/8 jam (TAO)
+Sukralfat syr 3xC2 
+
+I: PBJ hari ini (30/09/2026)
+
+3.12.4
+Hikmat Gulo/Lk/41th/01015048
+DPJP: dr. SAFRUDDIN, Sp.B-KBD, MM
+Tanggal masuk: 29/09/2026
+Tanggal operasi: 30/09/2026
+Dx: Post CBD Explore d/t Cholesystolhitiasis (POD-1)
+
+Lab (25/09/2026):
+Hb/Ht/Leu/Plt		: 13.7/40.8/11.230/304.000
+Na/K/Cl		: 146/4.3/114
+Bil.total/direk		: 0.37/0.12
+SGOT/SGPT		: 40/65
+Albumin		: 4.40
+GDS			: 94
+Ur/Cr/eGFR		: 17/0.74/116.88
+PT (P/K)		: 14.0/10.30
+APTT (P/K)		: 27.4/26.0
+INR			: 1.33
+AFP			: 1.94
+
+Foto Thoraks (25/09/2026): Tidak tampak kelainan secara radiologis pada jantung dan paru saat ini. 
+CT Scan Abdomen IV Kontras (RS Bina Kasih, 24/08/2026):
+Cholelithiasis disertai cholecystitis
+Kompresi corpus VL1
+Organ lainnya intraabdomen dalam batas normal
+
+
+I: Cek lab post operasi
+
+3.13.1
+Titian Sumarni/Pr/42th/00902893
+DPJP: dr. Siti Fathiya, Sp.B-KBD
+Tanggal masuk: 21/09/2026
+Tanggal operasi: 22/09/2026
+Dx: Post miles procedure d/t Post sigmodostomy diversi d/t Rectovaginal Fistula + Rectal AdenoCarcinoma ycT4bN1M0 4cm ACL + Post NAC + 24Cycles = Unrenponsive Chemotherapy + Post Radiotherapy 14 Fractions (POD-9) 
+
+Lab (29/09/2026) → post transfusi 
+Hb/Ht/Leu/Plt		: 9.9/29.0/15.950/334.000
+
+Lab (23/09/2026) -> post operasi
+Hb/Ht/Leu/Plt		: 7.7/22.5/26.700/241.000
+Albumin		: 3.12
+Na/K/Cl		: 143/4.3/111 
+
+Lab (16/09/2026):
+Hb/Ht/Leu/Plt		: 11.0/33.3//5.640/232.000
+Na/K/Cl		: 148/3.8/110
+Albumin		: 4.46
+GDS			: 106
+Ur/Cr/eGFR		: 18/0.64/113.26
+INR			: 1.01
+
+Lab (31/07/2026)
+CEA			: 83.80
+
+Foto Thoraks (16/09/2026): DBN
+CT Scan Kontras Abdomen Lengkap (06/08/2026):
+Massa semisirkuler rektum sisi kiri ukuran +/- 3 cm, disertai penebalan mesorektal, tidak tampak jelas KGB suspicious maligna regional.
+Tidak tampak nodul pada paru, hepar, ginjal maupun paraaaorta
+Staging radiologis T1-2 N0Mx
+Sistitis
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=1.3.46.670589.33.1.63921619869862346000001.5453789048963341958
+
+Kolonoskopi (26/09/2023): Tumor rectum + Divertikel pada Colon Transversum
+
+PA (26/09/2023): Adenocarcinoma (Well Differentiated) of the rectum
+
+R/ 
+- IVFD RL 20gtt/i
+- IVFD Tutosol/24 jam
+- Seftriakson/12 jam
+- Ranitidine/12 jam
+- Ketorolac/8 jam
+- Traneksamat/8 jam
+
+
+Diet: M2
+
+I: GV ganti Tampon vagina
+
+3.13.4
+Maimunah/Pr/45th/01005235
+DPJP: dr. Safruddin, Sp.B-KBD
+Tanggal masuk: 14/09/2026
+Tanggal operasi: 
+Dx : End Sigmoidostomy in-situ Post Proctosigmoidectomy (Hartmann's Procedure) (December 2025) d/t Moderately Differentiated Adenocarcinoma Rectosigmoid cT4aN0M0 + Post Chemotherapy (FOLFOX-6 Regiment) 4 cycles + Post Radiotherapy 23 times + Anemia (6.4) 
+
+Lab (29/09/2026): → post transfusi
+Hb/Ht/Leu/Plt		: 6.4/18.4/6.090/177.000
+
+Lab (21/09/2026)
+Hb/Ht/Leu/Plt		: 9.2/25.6/4.570/57.000
+
+Lab (19/09/2026)
+Hb/Ht/Leu/Plt		: 9.8/27.2/2.040/72.000 
+
+Lab (17/09/2026):
+Hb/Ht/Leu/Plt		: 9.1/25.1/300/77.000
+
+Lab (13/09/2026):
+Hb/Ht/Leu/Plt		: 10.3/28.2/2.090/102.000 (Leukopenia, Trombositopenia)
+Ur/Cr/eGFR		: 43/0.87/83.91
+GDS			: 147
+Na/K/Cl		: 132/3.2/107
+
+Hasil Radiologi
+Foto Thoraks (13/09/2026): *susul bacaan*
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=2026091321532589640771
+CT Scan Kontras Abdomen Lengkap (15/06/2026):
+Saat ini tak tampak jelas gambaran massa pada regio rectum
+Cystitis
+Spondylosis lumbal
+Terpasang stoma pada dinding kiri abdomen 
+PACS: https://pacs.rsham.co.id/patient/samples/externalcontroller/viewer.html?study=1.3.46.670589.33.1.63917125947082163100001.4858307114985197399
+
+R/  - IVFD Bfluid/24 jam
+- IVFD RL 20gtt/i
+- Seftriakson 1 amp/12 jam → sudah 7 hari tidak bisa lagi
+- Ranitidine 1 amp/12 jam
+- Ondansetron 1 amp/12 jam
+
+Pain management sesuai TS Anestesi
+
+Konsul pain management:
+
+MST 10mg/12jam PO
+Paracetamol 1000mg /8jam PO
+Amitriptilin 12,5mg/24jam PO (malam)
+Inj. ketorolac 30 mg/ 8 jam IV → sudah 7 hari tidak bisa lagi
+
+
+Diet: ML 1900 kkal
+
+I: Transfusi 4 bag PRC → susul UTD
+Pro kemoradiasi setelah perbaikan KU
+
+314.1
+Rospita Hutagalung/Pr/73th/01018422
+DPJP: dr. Edwin Saleh Siregar, Sp.B
+Tanggal masuk: 26/09/2026
+Tanggal operasi: 
+Dx: mild Acute Cholangitis d/t Susp. CBD stone
+
+Lab (25/09/2026):
+Hb/Ht/Leu/Plt		: 9.9/29.3/35.740/457.000
+Na/K/Cl		: 142/3.2/118
+PT (P/K)		: 10.5/10.20
+APTT (P/K)		: 21.8/26.2
+INR			: 0.97
+
+Lab (23/09/2026):
+AFP			: 1.45
+Bil. total/direk	: 1.30/0.93
+Amilase/Lipase	: 103/312
+Ur/Cr/eGFR		: 62/2.19/23.22
+
+Foto Thoraks (26/09/2026): Massa paratrakea kiri yang mendorong trakea ke sisi kanan. Fibrosis paru kanan. Aorta elongasi dan kalsifikasi.
+CT Scan Kontras Whole Abdomen (25/09/2026): *susul bacaan*
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=1.3.46.670589.33.1.63925924493657163700001.4815135549476623718
+
+R/ 
+- IVFD RL 20gtt/i
+- IVFD Tutosol/24 jam
+- Inj. Ranitidine/12 jam
+- Inj. Ketorolac/ 8 jam
+
+Antibiotik sesuai TS PTI: Meropenem
+
+I: Penjadwalan eksplorasi CBD Elektif
+Susul hasil bacaan CT Scan
+
+3.15.2
+Indra Gunawan/Lk/41th/01018233
+DPJP: dr. SAFRUDDIN, Sp.B-KBD, MM
+Tanggal masuk: 22/09/2026
+Tanggal operasi: 22/09/2026
+Dx: Post exploratory laparotomy emergency d/t ileus obstruktif (POD-7)
+
+CT Scan Kontras Whole Abdomen (24/09/2026):
+Acute necrotizing pancreatitis disertai peritonitis,
+Efusi pleura bilateral dengan komponen atelektasis
+Parsial ileus usus halus
+Kolelitiasis
+Distal tip drain tampak di inferior peripancreas dan di supravesika urinaria
+PACS: https://viewer-rad.rsham.go.id/viewer?StudyInstanceUIDs=1.3.46.670589.33.1.63925848618394346900001.4734047853965077935
+
+Lab (29/09/2026):
+Hb/Ht/Leu/Plt		: 10.3/30.2/22.840/281.000
+Amilase/Lipase	: 46/42
+
+Lab (23/09/2026) → lab post operasi
+Hb/Ht/Leu/Plt		: 13.1/37.2/19.020/188.000
+Na/K/Cl		: 145/3.0/113
+Albumin		: 3.17
+Amilase		: 248
+Lipase			: 240
+Bil.total/direk/indirek: 1.23/0.59/0.64
+SGOT/SGPT		: 81/140
+Ur/Cr/eGFR		: 81/1.55/57.31
+
+Lab (21/09/2026):
+Hb/Ht/Leu/Plt		: 15.5/43.5/32.860/192.000
+GDS			: 190
+Ur/Cr/eGFR		: 68/1.82/47.27
+Na/K/Cl		: 135/3.1/109
+HbsAg/HIV		: NR/NR
+INR			: 1.16
+
+R/ - IVFD RL 20gtt/i
+- IVFD Futrolit/24 jam
+- Seftriakson/12 jam
+- Ranitidine/12 jam
+- Ketorolac/8 jam
+
+TS PTI:
+(+) IVFD Smofkabiven 1fls/24jam
+(+) Inj. Ampisilin sulbactam 1,5 gr/6 jam (start 24/9/2026)
+
+R/
+Kultur pus (susul bahan) 
+
+TS GEH:
+
+Pasang NGT, alirkan /8jam
+(+) drip omeprazole 5 amp dalam 40 cc nacl 0.9%, drip 2cc/jam
+(+) inj asam traneksamat 500mg/8 jam
+(+) inj vit k 1 amp/hari selama 3 hari
+(+) UDCA 3x250mg
+NAC 3x400mg
+Sukralfat 3xC2
+
+
+Diet: Diet susu 50cc/4 jam
+
+I: PBJ hari ini (01/10)
