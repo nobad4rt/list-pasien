@@ -998,7 +998,7 @@ def main():
         simpan_teks(tgl, [(Path(f).stem, Path(f).read_text(encoding="utf-8", errors="replace")) for f in a.files])
     else:
         ap.error("butuh file .txt atau --from-json")
-    out = a.out or f"List Pasien {tgl.strftime('%d-%m-%Y')}.docx"
+    out = a.out or f"/output/List Pasien {tgl.strftime('%d-%m-%Y')}.docx"
     buat_docx(data, tgl, out)
 
 
