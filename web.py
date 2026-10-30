@@ -7,6 +7,8 @@ Halaman:
   /              input laporan (tempel teks), cek data baru, lalu proses jadi docx
   /riwayat       daftar laporan per hari  -> /riwayat/YYYY-MM-DD
   /pasien        daftar semua pasien      -> /pasien/<id> (riwayat per hari pasien itu)
+  /ruangan       ruangan yang dikenal sistem (tambah/hapus/urutkan)
+  /edit/YYYY-MM-DD   preview & edit data hasil AI, lalu buat ulang docx
 
 Hanya mendengar di 127.0.0.1 (data pasien tidak keluar dari komputer ini).
 Tanpa library tambahan: cukup Python standar + dependensi visite.py.
@@ -59,6 +61,72 @@ def meta(tgl):
 
 def teks_hari(tgl):
     return baca(visite.RIWAYAT / "teks" / f"{tgl}.json", [])
+
+
+def data_hari(tgl):
+    """Hasil AI mentah hari itu (None kalau list dibuat sebelum fitur edit)."""
+    return baca(visite.RIWAYAT / "data" / f"{tgl}.json")
+
+
+def statistik_ruang():
+    """{ruang: {hari, akhir, n}} dari riwayat: berapa hari muncul, tanggal terakhir, jumlah pasien saat itu."""
+    st = {}
+    for tgl in sorted(tgl_hari()):
+        hit = {}
+        for v in snapshot(tgl).values():
+            hit[v.get("r") or "?"] = hit.get(v.get("r") or "?", 0) + 1
+        for r, n in hit.items():
+            s = st.setdefault(r, {"hari": 0})
+            s.update(hari=s["hari"] + 1, akhir=tgl, n=n)
+    return st
+
+
+def ubah_ruangan(aksi, nama):
+    xs = visite.daftar_ruangan()
+    nama = re.sub(r"\s+", " ", str(nama or "")).strip(" :*")
+    kunci = visite.kunci_ruang(nama)
+    idx = next((i for i, x in enumerate(xs) if visite.kunci_ruang(x) == kunci), None)
+    if aksi == "tambah":
+        if not kunci or len(nama) > 30 or "/" in nama:
+            raise ValueError("Nama ruangan tidak valid.")
+        if kunci.isdigit():
+            raise ValueError("Nama ruangan tidak boleh angka saja (tertukar dengan nomor bed). Tulis mis. 'Ruang 206'.")
+        if idx is not None:
+            raise ValueError(f"'{xs[idx]}' sudah ada di daftar.")
+        xs.append(visite.norm_ruang(nama))
+    elif idx is None:
+        raise ValueError(f"Ruangan '{nama}' tidak ada di daftar.")
+    elif aksi == "hapus":
+        xs.pop(idx)
+    else:
+        raise ValueError("Aksi tidak dikenal.")
+    visite.simpan_ruangan(xs)
+    return xs
+
+
+TEKS_F = ("r", "k", "n", "jk", "u", "rm", "dpjp", "tm", "to", "st", "dx", "tl")
+LIST_F = ("o", "lab", "pj", "m", "d", "tx", "p")
+
+
+def bersih_data(data):
+    """Data hasil edit dari browser -> struktur proses_file yang rapi (string / list string)."""
+    if not isinstance(data, list):
+        raise ValueError("Data tidak valid.")
+    out = []
+    for d in data:
+        ps = []
+        for p in (d.get("pasien") if isinstance(d, dict) else None) or []:
+            if not isinstance(p, dict):
+                continue
+            x = {f: str(p[f]).strip() for f in TEKS_F if str(p.get(f) or "").strip()}
+            for f in LIST_F:
+                v = p.get(f) or []
+                x[f] = [str(i).strip() for i in (v if isinstance(v, list) else [v]) if str(i).strip()]
+            if p.get("_c"):
+                x["_c"] = str(p["_c"])
+            ps.append(x)
+        out.append({"ruang": str(d.get("ruang") or ""), "pasien": ps})
+    return out
 
 
 def registri():
@@ -163,9 +231,10 @@ def analisa(teks_list, tgl):
                        "dpjp_lama": snap_lama.get(pas_snap.get(k), {}).get("dpjp", "")})
     cocok = set(pas_snap.values())
     keluar = [f"{v['n']} ({v.get('r', '')})" for i, v in snap_lama.items() if i not in cocok]
-    ruang = {}
-    for p in pasien:
-        ruang.setdefault(p["ruang"], {"n": 0, "sumber": p["sumber"]})["n"] += 1
+    ruang, kenal = {}, {visite.kunci_ruang(x) for x in visite.daftar_ruangan()}
+    for p in sorted(pasien, key=lambda p: visite.urutan_ruang(p["ruang"])):
+        ruang.setdefault(p["ruang"], {"n": 0, "sumber": p["sumber"],
+                                      "baru": p["ruang"] != "?" and visite.kunci_ruang(p["ruang"]) not in kenal})["n"] += 1
     return {"tgl": iso, "tgl_lama": tgl_lama, "tgl_teks": tgl_teks if teks_lama else None,
             "total": len(pasien), "ke_ai": sum(1 for p in pasien if not p["cache"]),
             "ruang": ruang, "pasien": pasien, "keluar": keluar,
@@ -194,6 +263,14 @@ class Tee(io.TextIOBase):
         self.asli.flush()
 
 
+def buat_docx(data, tgl):
+    out = visite.BASE / f"output/List Pasien {tgl:%d-%m-%Y}.docx"
+    try:
+        return visite.buat_docx(data, tgl, out)
+    except PermissionError:
+        raise RuntimeError(f"'{out.name}' sedang dibuka (Word?). Tutup dulu lalu coba lagi.")
+
+
 def jalankan(job, teks_list, tgl):
     if not KUNCI_JOB.acquire(blocking=False):
         job.update(status="gagal", error="Masih ada proses lain berjalan.")
@@ -203,11 +280,8 @@ def jalankan(job, teks_list, tgl):
     try:
         data = visite.proses_file(teks_list, tgl, MODEL, ENGINE)
         visite.simpan_teks(tgl, teks_list)
-        out = visite.BASE / f"List Pasien {tgl:%d-%m-%Y}.docx"
-        try:
-            job["hasil"] = visite.buat_docx(data, tgl, out)
-        except PermissionError:
-            raise RuntimeError(f"'{out.name}' sedang dibuka (Word?). Tutup dulu lalu proses lagi.")
+        visite.simpan_data(tgl, data)  # sebelum buat_docx (yang mengubah isi data)
+        job["hasil"] = buat_docx(data, tgl)
         job["status"] = "selesai"
     except BaseException as e:  # sys.exit dari panggil_cli juga ditangkap
         job.update(status="gagal", error=str(e) or e.__class__.__name__)
@@ -256,13 +330,115 @@ a{color:var(--acc)}ul{margin:4px 0;padding-left:20px}details summary{cursor:poin
 .tl{border-left:3px solid var(--line);padding-left:14px;margin-left:6px}
 .tl .card{position:relative}.tl .card:before{content:"";position:absolute;left:-22px;top:20px;width:11px;height:11px;border-radius:50%;background:var(--acc)}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:4px 20px}
+input[type=text]{padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);font:inherit}
+body.lebar main{max-width:none;padding-left:8px;padding-right:8px}
+.edt{min-width:1100px;table-layout:fixed}.edt td{padding:3px}
+.edt tr>:nth-child(1){width:6%}.edt tr>:nth-child(2){width:15%}.edt tr>:nth-child(3){width:12%}
+.edt tr>:nth-child(4){width:19%}.edt tr>:nth-child(5){width:11%}.edt tr>:nth-child(6){width:7%}
+.edt tr>:nth-child(7),.edt tr>:nth-child(8){width:13%}.edt tr>:nth-child(9){width:4%;text-align:center;padding:3px 0}
+.ed{display:block;width:100%;margin:1px 0;padding:3px 6px;border:1px solid var(--line);border-radius:5px;
+background:var(--bg);color:var(--ink);font:12px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif}
+textarea.ed{min-height:0;resize:vertical;overflow:hidden}.ed:focus{outline:2px solid var(--acc);outline-offset:-1px}
+.ed.ubah{border-color:var(--amb)}tr.dihapus td{opacity:.35}tr.pbaru td{background:var(--grnbg)}
+button.mini{padding:3px 9px;font-size:12px;font-weight:600}
+"""
+
+# dipakai halaman Input (setelah proses) dan /edit/<tgl>
+EDITOR_JS = r"""
+function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+async function post(u,b){const r=await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});
+const j=await r.json();if(!r.ok)throw new Error(j.error||r.statusText);return j}
+// beberapa field dalam satu textbox: teks() untuk ditampilkan, baca() mengisi field dari teks
+const IDENT=[['n','Nama'],['jk','JK'],['u','Umur'],['rm','RM'],['dpjp','DPJP'],['tm','Masuk'],['to','Operasi'],['st','Status']];
+const GABUNG={
+ ident:{teks:p=>IDENT.map(([f,l])=>`${l}: ${p[f]??''}`).join('\n'),
+  baca:(p,t)=>{const lab=Object.fromEntries(IDENT.map(([f,l])=>[l.toLowerCase(),f]));IDENT.forEach(([f])=>p[f]='');
+   for(const x of t.split('\n')){const m=x.match(/^\s*([^:]+?)\s*:\s*(.*)$/),f=m&&lab[m[1].toLowerCase()];if(f)p[f]=m[2].trim()}}},
+ // judul bagian = baris persis 'Lab dd/mm:' / 'Penunjang:' / 'Klinis:'; baris di bawahnya = isi bagian itu
+ obj:{teks:p=>[`Lab ${p.tl||''}:`.replace(' :',':'),...(p.lab||[]),'Penunjang:',...(p.pj||[]),'Klinis:',...(p.o||[])].join('\n'),
+  baca:(p,t)=>{p.tl='';p.lab=[];p.pj=[];p.o=[];let cur='lab';
+   for(const x of t.split('\n')){const s=x.trim();if(!s)continue;const m=s.match(/^lab\s*([\d\/.-]*)\s*:$/i);
+    if(m){cur='lab';p.tl=m[1];continue}
+    if(/^penunjang\s*:$/i.test(s)){cur='pj';continue}
+    if(/^klinis\s*:$/i.test(s)){cur='o';continue}
+    p[cur].push(s)}}}};
+// kolom sama dengan docx; tipe: '' input, area = teks panjang, list = 1 baris 1 item, gabung = GABUNG
+const KOL_ED=[
+ ['Kamar',[['k','bed'],['r','ruang','ruang']]],
+ ['Identitas',[['ident','Status: PBJ dd/mm / Op dd/mm: tindakan','gabung']]],
+ ['Diagnosis',[['dx','diagnosis','area']]],
+ ['Objectives',[['obj','Lab: 1 baris = 1 item (mis Hb 10.0, Leu 8.460). Penunjang: mis Foto thorax: normal. Klinis: keluhan / tanda vital','gabung']]],
+ ['Masalah',[['m','awali ! = merah','list']]],
+ ['Diet',[['d','diet','list']]],
+ ['Tatalaksana',[['tx','terapi (kosong = ikut list sebelumnya)','list']]],
+ ['Planning',[['p','rencana','list']]]];
+function edField(si,pi,p,[f,ph,tipe],ruang){
+ const v=tipe==='gabung'?GABUNG[f].teks(p):tipe==='list'?(p[f]||[]).join('\n'):String(p[f]??'');
+ if(f==='r')ph='ruang (kosong = '+ruang+')';
+ const a=`class="ed" data-s="${si}" data-p="${pi}" data-f="${f}" data-t="${tipe||''}" placeholder="${esc(ph)}" title="${esc(ph)}"`;
+ if(tipe==='list'||tipe==='area'||tipe==='gabung')return `<textarea ${a} rows="${Math.max(tipe==='area'?3:2,v.split('\n').length)}">${esc(v)}</textarea>`;
+ return `<input ${a} value="${esc(v)}"${tipe==='ruang'?' list="dl-ruang"':''}>`}
+function barisEd(si,pi,p,ruang){
+ return `<tr${p._baru?' class="pbaru"':''}>${KOL_ED.map(k=>`<td>${k[1].map(x=>edField(si,pi,p,x,ruang)).join('')}</td>`).join('')}
+ <td><input type="checkbox" class="hapus" data-s="${si}" data-p="${pi}"></td></tr>`}
+function editor(el,tgl,data,ruangan){
+ let h=`<datalist id="dl-ruang">${ruangan.map(r=>`<option value="${esc(r)}">`).join('')}</datalist>
+ <p class="mute small">Klik sel untuk mengubah. Satu baris = satu item. Identitas: ubah teks setelah "Nama:", "RM:", dst.
+ Objectives: isi di bawah judul <b>Lab dd/mm:</b>, <b>Penunjang:</b>, <b>Klinis:</b> (judulnya jangan dihapus).
+ Centang <b>Hapus</b> untuk membuang pasien dari list. Pasien yang tidak terbaca AI bisa ditambah lewat tombol
+ <b>+ Tambah pasien</b> di bawah tiap ruangan.</p>`;
+ data.forEach((d,si)=>{
+  h+=`<h2>${esc(d.ruang||'Tanpa ruangan')} <span class="mute small"><span class="jml">${d.pasien.length}</span> pasien</span></h2>
+  <div class="wrap"><table class="edt"><tr>${KOL_ED.map(k=>`<th>${k[0]}</th>`).join('')}<th>Hapus</th></tr>`;
+  d.pasien.forEach((p,pi)=>{h+=barisEd(si,pi,p,d.ruang||'-')});
+  h+=`</table></div><p><button class="sec mini tambah" data-s="${si}">+ Tambah pasien di ${esc(d.ruang||'sini')}</button></p>`});
+ h+=`<div class="card"><div class="row"><button class="bsimpan">Simpan &amp; buat ulang docx</button>
+ <span class="mute small">Riwayat tanggal ${esc(tgl)} ditimpa. Hasil edit juga masuk cache: teks pasien yang sama besok memakai data ini.</span></div>
+ <div class="hsimpan"></div></div>`;
+ el.innerHTML=h;
+ document.body.classList.add('lebar');  // editor selebar layar
+ const tinggi=t=>{t.style.height='auto';t.style.height=(t.scrollHeight+2)+'px'};  // textarea memanjang sesuai isi
+ el.querySelectorAll('textarea.ed').forEach(tinggi);
+ addEventListener('resize',()=>el.querySelectorAll('textarea.ed').forEach(tinggi));
+ el.addEventListener('click',e=>{const b=e.target.closest('.tambah');if(!b)return;
+  const si=+b.dataset.s,d=data[si],pi=d.pasien.push({_baru:true})-1;
+  const tb=el.querySelectorAll('table.edt')[si].tBodies[0];
+  tb.insertAdjacentHTML('beforeend',barisEd(si,pi,d.pasien[pi],d.ruang||'-'));
+  tb.lastElementChild.querySelectorAll('textarea.ed').forEach(tinggi);
+  el.querySelectorAll('.jml')[si].textContent=d.pasien.length;
+  tb.lastElementChild.querySelector('[data-f="ident"]').focus()});
+ el.addEventListener('input',e=>{const t=e.target;if(!t.classList.contains('ed'))return;
+  if(t.tagName==='TEXTAREA')tinggi(t);
+  const p=data[t.dataset.s].pasien[t.dataset.p];
+  if(t.dataset.t==='gabung')GABUNG[t.dataset.f].baca(p,t.value);
+  else p[t.dataset.f]=t.dataset.t==='list'?t.value.split('\n').map(x=>x.trim()).filter(Boolean):t.value;
+  t.classList.add('ubah')});
+ el.addEventListener('change',e=>{if(e.target.classList.contains('hapus'))e.target.closest('tr').classList.toggle('dihapus',e.target.checked)});
+ const bt=el.querySelector('.bsimpan'),out=el.querySelector('.hsimpan');
+ bt.onclick=async()=>{
+  const hapus=new Set([...el.querySelectorAll('.hapus:checked')].map(c=>c.dataset.s+'/'+c.dataset.p));
+  const kirim=data.map((d,si)=>({...d,pasien:d.pasien.filter((_,pi)=>!hapus.has(si+'/'+pi))}));
+  if(kirim.some(d=>d.pasien.some(p=>!String(p.n??'').trim()))){
+   out.innerHTML='<div class="err">Ada pasien tanpa nama. Isi "Nama:" di kolom Identitas, atau centang Hapus.</div>';return}
+  bt.disabled=true;out.innerHTML='<p class="mute">Menyimpan…</p>';
+  try{const x=await post('/api/simpan',{tanggal:tgl,data:kirim});
+   el.querySelectorAll('.ed.ubah').forEach(t=>t.classList.remove('ubah'));
+   out.innerHTML=`<div class="row" style="margin-top:10px"><b>Tersimpan — ${x.total} pasien.</b>
+   <a class="btn" href="/unduh/${encodeURIComponent(x.file)}">Unduh ${esc(x.file)}</a>
+   <a class="btn sec" href="/riwayat/${esc(tgl)}">Lihat riwayat</a></div>`}
+  catch(e){out.innerHTML=`<div class="err">${esc(e.message)}</div>`}
+  bt.disabled=false}}
+async function muatEditor(el,tgl){el.innerHTML='<p class="mute">Memuat data…</p>';
+ const r=await fetch('/api/data/'+tgl),j=await r.json();
+ if(!r.ok){el.innerHTML=`<div class="warn">${esc(j.error)}</div>`;return}
+ editor(el,tgl,j.data,j.ruangan)}
 """
 
 
 def halaman(judul, isi, aktif=""):
     nav = "".join(f'<a href="{u}" class="{"on" if aktif == k else ""}">{t}</a>'
                   for k, u, t in [("input", "/", "Input Laporan"), ("riwayat", "/riwayat", "Riwayat Harian"),
-                                  ("pasien", "/pasien", "Riwayat Pasien")])
+                                  ("pasien", "/pasien", "Riwayat Pasien"), ("ruangan", "/ruangan", "Ruangan")])
     return f"""<!doctype html><html lang="id"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(judul)} · List Pasien</title>
 <style>{CSS}</style></head><body><header><div class="in"><b>List Pasien Visite</b>{nav}</div></header>
@@ -301,17 +477,15 @@ Model: {E(ENGINE)}/{E(MODEL)}</p>
  <div class="row" style="margin-top:16px"><button id="bcek" onclick="cek()">Cek Data</button></div>
 </div>
 <div id="hasil"></div>
+<script>{EDITOR_JS}</script>
 <script>
 let nK=0, terakhir=null;
 function tambahKoreksi(){{nK++;const d=document.createElement('div');
 d.innerHTML=`<label for="k${{nK}}">Koreksi ${{nK}}</label><textarea id="k${{nK}}" style="min-height:140px"></textarea>`;
 document.getElementById('koreksi').appendChild(d)}}
-function esc(s){{return String(s??'').replace(/[&<>"]/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}}[c]))}}
 function kumpul(){{const t=[{{nama:'laporan',teks:document.getElementById('t0').value}}];
 for(let i=1;i<=nK;i++){{const v=document.getElementById('k'+i).value;if(v.trim())t.push({{nama:'koreksi '+i,teks:v}})}}
 return {{tanggal:document.getElementById('tgl').value,teks:t}}}}
-async function post(u,b){{const r=await fetch(u,{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify(b)}});
-const j=await r.json();if(!r.ok)throw new Error(j.error||r.statusText);return j}}
 async function cek(){{const b=kumpul();if(!b.teks[0].teks.trim()){{alert('Laporan masih kosong');return}}
 const h=document.getElementById('hasil');h.innerHTML='<div class="card mute">Mengecek…</div>';
 try{{const a=await post('/api/cek',b);terakhir=b;tampil(a)}}catch(e){{h.innerHTML=`<div class="err">${{esc(e.message)}}</div>`}}}}
@@ -325,8 +499,10 @@ function tampil(a){{
  <div class="stat"><b>${{n('berubah')}}</b><span>pasien ada data baru</span></div>
  <div class="stat"><b>${{a.keluar.length}}</b><span>tidak ada lagi vs list sebelumnya</span></div>
  <div class="stat"><b>${{a.ke_ai}}</b><span>dikirim ke AI (sisanya cache)</span></div></div>`;
- h+=`<div class="card small">Ruangan: ${{Object.entries(a.ruang).map(([r,v])=>`<b>${{esc(r)}}</b> ${{v.n}}${{v.sumber!=='laporan'?' <span class="tag berubah">'+esc(v.sumber)+'</span>':''}}`).join(' · ')}}<br>
+ h+=`<div class="card small">Ruangan: ${{Object.entries(a.ruang).map(([r,v])=>`<b>${{esc(r)}}</b> ${{v.n}}${{v.baru?' <span class="tag baru">ruangan baru</span>':''}}${{v.sumber!=='laporan'?' <span class="tag berubah">'+esc(v.sumber)+'</span>':''}}`).join(' · ')}}<br>
  Pembanding: ${{a.tgl_lama?'list '+esc(a.tgl_lama):'<i>belum ada riwayat</i>'}}${{a.tgl_teks?' · teks laporan '+esc(a.tgl_teks):' · <i>teks laporan sebelumnya tidak tersimpan, data baru per baris tidak bisa dibandingkan</i>'}}</div>`;
+ if(a.ruang['?'])h+=`<div class="warn">${{a.ruang['?'].n}} pasien tanpa judul ruangan yang dikenali. Kalau ini ruangan baru,
+ tambahkan namanya di <a href="/ruangan" target="_blank">Ruangan</a> lalu klik Cek Data lagi.</div>`;
  if(a.sudah_ada)h+=`<div class="warn">Riwayat tanggal ${{esc(a.tgl)}} sudah ada dan akan ditimpa kalau diproses.</div>`;
  const pbj=a.pasien.filter(p=>p.pbj_lewat.length);
  if(pbj.length)h+=`<div class="warn"><b>PBJ sudah lewat (tidak akan dimasukkan list):</b> ${{pbj.map(p=>esc(p.n)+' — '+esc(p.pbj_lewat[0])).join('; ')}}</div>`;
@@ -357,7 +533,9 @@ const t=setInterval(async()=>{{const s=await (await fetch('/api/job/'+r.id)).jso
  const x=s.hasil;j.innerHTML=`<div class="card" style="border-color:var(--grn)"><b>Selesai — ${{x.total}} pasien.</b>
  <div class="row" style="margin:10px 0"><a class="btn" href="/unduh/${{encodeURIComponent(x.file)}}">Unduh ${{esc(x.file)}}</a>
  <a class="btn sec" href="/riwayat/${{esc(terakhir.tanggal)}}">Lihat riwayat hari ini</a></div>
- <p class="small">${{esc(x.catatan)}}</p></div><details><summary>Log</summary><div class="log">${{esc(s.log.join('\\n'))}}</div></details>`}},1500)}}
+ <p class="small">${{esc(x.catatan)}}</p></div><details><summary>Log</summary><div class="log">${{esc(s.log.join('\\n'))}}</div></details>
+ <h2>Preview &amp; edit data</h2><div id="edit"></div>`;
+ muatEditor(document.getElementById('edit'),terakhir.tanggal)}},1500)}}
 </script>"""
     return halaman("Input", isi, "input")
 
@@ -377,9 +555,7 @@ def hal_riwayat():
 
 
 def urut_pasien(snap):
-    urut = visite.URUTAN_RUANG
-    return sorted(snap.items(), key=lambda kv: (urut.index(kv[1].get("r")) if kv[1].get("r") in urut else len(urut),
-                                                 kv[1].get("r", ""), kv[1].get("k", "")))
+    return sorted(snap.items(), key=lambda kv: (visite.urutan_ruang(kv[1].get("r", "")), kv[1].get("k", "")))
 
 
 def hal_hari(tgl):
@@ -395,8 +571,13 @@ def hal_hari(tgl):
         f'<a href="/riwayat/{hari[i + 1]}">{E(hari[i + 1])} →</a>' if i + 1 < len(hari) else ""] if x)
     f = m.get("file")
     isi = f"<h1>{E(tgl_id(tgl))}</h1><p class='mute'>{len(snap)} pasien · {E(m.get('rekap', ''))} {('· ' + nav) if nav else ''}</p>"
+    tombol = []
     if f and (visite.BASE / f).exists():
-        isi += f'<p><a class="btn" href="/unduh/{quote(f)}">Unduh {E(f)}</a></p>'
+        tombol.append(f'<a class="btn" href="/unduh/{quote(f)}">Unduh {E(f)}</a>')
+    if data_hari(tgl) is not None:
+        tombol.append(f'<a class="btn sec" href="/edit/{tgl}">Edit data</a>')
+    if tombol:
+        isi += f'<p class="row">{"".join(tombol)}</p>'
     if m.get("catatan"):
         isi += f'<div class="card"><b>Catatan</b><p class="small">{E(m["catatan"].removeprefix("Catatan: "))}</p>'
         for k, t in (("keluar", "Keluar dari list"), ("pindah", "Pindah ruangan"),
@@ -421,6 +602,54 @@ def hal_hari(tgl):
             f'<details class="card"><summary>{E(x["nama"])} ({len(x["teks"].splitlines())} baris)</summary>'
             f'<div class="log" style="max-height:600px">{E(x["teks"])}</div></details>' for x in teks)
     return halaman(tgl, isi, "riwayat")
+
+
+def hal_edit(tgl):
+    if not snapshot(tgl) and data_hari(tgl) is None:
+        return None
+    isi = f"""<h1>Edit data — {E(tgl_id(tgl))}</h1>
+<p class="mute">Hasil AI untuk tanggal ini. Simpan = docx &amp; riwayat tanggal ini dibuat ulang dari data di bawah.
+<a href="/riwayat/{tgl}">← kembali ke riwayat</a></p><div id="ed"></div>
+<script>{EDITOR_JS}</script><script>muatEditor(document.getElementById('ed'),{json.dumps(tgl)})</script>"""
+    return halaman(f"Edit {tgl}", isi, "riwayat")
+
+
+def hal_ruangan():
+    xs, st = visite.daftar_ruangan(), statistik_ruang()
+    kenal = {visite.kunci_ruang(x) for x in xs}
+
+    def info(r):
+        s = st.get(r)
+        if not s:
+            return "<td class='mute small' colspan='3'>belum pernah ada di list</td>"
+        return f"<td class='small'>{E(tgl_id(s['akhir']))}</td><td>{s['n']}</td><td>{s['hari']}</td>"
+
+    def tombol(aksi, r, teks, kelas="sec"):
+        return f'<button class="mini {kelas}" data-n="{E(r)}" onclick="aksi(\'{aksi}\',this.dataset.n)">{teks}</button>'
+
+    rows = "".join(f"""<tr><td>{i}</td><td><b>{E(r)}</b></td>
+<td class="small">{"otomatis" if visite.HEADER_RUANG.match(r) else "baris judul persis <code>" + E(r) + "</code>"}</td>
+{info(r)}<td>{tombol("hapus", r, "Hapus")}</td></tr>"""
+                   for i, r in enumerate(xs, 1))
+    lain = [r for r in st if r != "?" and visite.kunci_ruang(r) not in kenal]
+    rows_lain = "".join(f"<tr><td><b>{E(r)}</b></td>{info(r)}<td>{tombol('tambah', r, '+ Tambah', '')}</td></tr>"
+                        for r in sorted(lain))
+    isi = f"""<h1>Ruangan</h1>
+<p class="mute">Ruangan yang dikenali sistem saat memecah laporan. Judul <b>RB n</b>, <b>RA n</b>, <b>Pav n</b>, <b>Ruang n</b>
+dikenali otomatis. Ruangan dengan nama lain (mis. ICU, HCU, Melati 2) harus ditambahkan dulu: di laporan, tulis namanya
+sebagai satu baris judul sendiri (boleh diakhiri ":") sebelum pasien-pasien ruangan itu.</p>
+<div class="card"><form class="row" onsubmit="event.preventDefault();aksi('tambah',this.nama.value)">
+<input type="text" name="nama" placeholder="Nama ruangan, mis. ICU" maxlength="30" required>
+<button>Tambah ruangan</button></form></div>
+<h2>Daftar ruangan <span class="mute small">(urut otomatis: RA, RB, Pav, Ruang, lalu nama lain; per kelompok urut angka)</span></h2>
+<div class="wrap"><table><tr><th>#</th><th>Ruangan</th><th>Dikenali dari</th><th>Terakhir di list</th><th>Pasien saat itu</th><th>Hari</th><th></th></tr>
+{rows or "<tr><td colspan='7' class='mute'>Daftar kosong.</td></tr>"}</table></div>
+{f'''<h2>Terdata di riwayat, belum di daftar</h2><div class="wrap"><table><tr><th>Ruangan</th><th>Terakhir di list</th>
+<th>Pasien saat itu</th><th>Hari</th><th></th></tr>{rows_lain}</table></div>''' if lain else ""}
+<script>{EDITOR_JS}
+async function aksi(a,n){{if(a==='hapus'&&!confirm('Hapus '+n+' dari daftar?'))return;
+try{{await post('/api/ruangan',{{aksi:a,nama:n}});location.reload()}}catch(e){{alert(e.message)}}}}</script>"""
+    return halaman("Ruangan", isi, "ruangan")
 
 
 def hal_pasien(q=""):
@@ -513,6 +742,20 @@ class Handler(BaseHTTPRequestHandler):
             if m:
                 h = hal_hari(m.group(1))
                 return self.kirim(200, h) if h else self.kirim(404, halaman("404", "<h1>Tidak ada</h1>"))
+            m = re.fullmatch(r"/edit/(\d{4}-\d{2}-\d{2})", p)
+            if m:
+                h = hal_edit(m.group(1))
+                return self.kirim(200, h) if h else self.kirim(404, halaman("404", "<h1>Tidak ada</h1>"))
+            m = re.fullmatch(r"/api/data/(\d{4}-\d{2}-\d{2})", p)
+            if m:
+                data = data_hari(m.group(1))
+                if data is None:
+                    return self.json({"error": "Data hasil AI tanggal ini tidak tersimpan (list dibuat sebelum fitur edit). "
+                                               "Proses ulang laporannya di Input Laporan; pasien yang teksnya sama "
+                                               "diambil dari cache, tidak dikirim ulang ke AI."}, 404)
+                return self.json({"data": data, "ruangan": visite.daftar_ruangan()})
+            if p == "/ruangan":
+                return self.kirim(200, hal_ruangan())
             if p == "/pasien":
                 return self.kirim(200, hal_pasien(parse_qs(u.query).get("q", [""])[0]))
             if p.startswith("/pasien/"):
@@ -537,8 +780,20 @@ class Handler(BaseHTTPRequestHandler):
         try:
             n = int(self.headers.get("Content-Length") or 0)
             body = json.loads(self.rfile.read(n) or b"{}")
+            if self.path == "/api/ruangan":
+                return self.json({"ruangan": ubah_ruangan(body.get("aksi"), body.get("nama"))})
             tgl = dt.date.fromisoformat(body.get("tanggal") or dt.date.today().isoformat())
-            teks = [(x.get("nama") or f"teks {i}", x.get("teks", "")) for i, x in enumerate(body.get("teks", []))
+            if self.path == "/api/simpan":
+                data = bersih_data(body.get("data"))
+                if not KUNCI_JOB.acquire(blocking=False):
+                    return self.json({"error": "Masih ada proses lain berjalan, tunggu selesai."}, 409)
+                try:
+                    visite.perbarui_cache(data_hari(tgl.isoformat()) or [], data)
+                    visite.simpan_data(tgl, data)
+                    return self.json(buat_docx(data, tgl))
+                finally:
+                    KUNCI_JOB.release()
+            teks =[(x.get("nama") or f"teks {i}", x.get("teks", "")) for i, x in enumerate(body.get("teks", []))
                     if str(x.get("teks", "")).strip()]
             if not teks:
                 return self.json({"error": "Teks laporan kosong"}, 400)
@@ -552,6 +807,8 @@ class Handler(BaseHTTPRequestHandler):
                 threading.Thread(target=jalankan, args=(JOBS[jid], teks, tgl), daemon=True).start()
                 return self.json({"id": jid})
             self.json({"error": "tidak ada"}, 404)
+        except ValueError as e:  # input tidak valid (nama ruangan, tanggal, data edit)
+            self.json({"error": str(e)}, 400)
         except Exception as e:
             traceback.print_exc()
             self.json({"error": str(e)}, 500)

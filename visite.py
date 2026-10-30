@@ -231,14 +231,18 @@ HEADER_RUANG = re.compile(r"^\s*(RB|RA|PAV(?:ILIUN)?\.?|RUANG(?:AN)?)\s*(\d+)\s*
 
 
 def pecah_ruangan(teks):
-    """Satu file bisa berisi beberapa ruangan -> [(ruang, teks)], supaya tiap panggilan AI kecil."""
+    """Satu file bisa berisi beberapa ruangan -> [(ruang, teks)], supaya tiap panggilan AI kecil.
+    Judul ruangan: pola HEADER_RUANG, atau baris yang isinya persis nama di daftar_ruangan()
+    (mis 'ICU :' setelah ICU ditambahkan di web)."""
+    kustom = {kunci_ruang(x): x for x in daftar_ruangan()}
     bagian, ruang, buf = [], "", []
     for line in teks.splitlines():
         m = HEADER_RUANG.match(line)
-        if m:
+        nama = norm_ruang(f"{m.group(1)} {m.group(2)}") if m else kustom.get(kunci_ruang(line))
+        if nama:
             if "\n".join(buf).strip():
                 bagian.append((ruang, "\n".join(buf)))
-            ruang, buf = norm_ruang(f"{m.group(1)} {m.group(2)}"), []
+            ruang, buf = nama, []
         else:
             buf.append(line)
     if "\n".join(buf).strip():
@@ -307,9 +311,10 @@ def proses_bagian(nama, ruang, teks, tgl, model, engine):
     CACHE.mkdir(exist_ok=True)
     label = f"{nama}-{ruang or 'x'}".replace(" ", "")
     blok = pecah_pasien(teks) or [bersihkan(teks)]  # format tak dikenal -> kirim utuh
-    hasil, kirim = {}, []
+    hasil, kirim, nama_cf = {}, [], {}
     for i, b in enumerate(blok, 1):
         cf = CACHE / f"p-{kunci_cache(b, ruang, tgl, model)}.json"
+        nama_cf[i] = cf.stem
         if cf.exists():
             hasil[i] = json.loads(cf.read_text(encoding="utf-8"))
         else:
@@ -335,6 +340,9 @@ def proses_bagian(nama, ruang, teks, tgl, model, engine):
                 cf.write_text(json.dumps(per_blok[i], ensure_ascii=False, indent=1), encoding="utf-8")
             else:  # tidak di-cache supaya dicoba lagi di run berikutnya
                 print(f"{label}: AI tidak mengembalikan blok {i}: {b.splitlines()[0][:60]}", file=sys.stderr)
+    for i, ps in hasil.items():
+        for p in ps:
+            p["_c"] = nama_cf[i]  # asal cache, supaya hasil edit di web bisa ditulis balik
     return {"ruang": ruang, "pasien": [p for i in sorted(hasil) for p in hasil[i]]}
 
 
@@ -592,7 +600,7 @@ def norm_ruang(r):
     m = re.fullmatch(r"(?:RUANG(?:AN)?\s*)?(\d+)", r, re.I)
     if m:
         return f"Ruang {m.group(1)}"
-    return r
+    return {kunci_ruang(x): x for x in daftar_ruangan()}.get(kunci_ruang(r), r)  # 'icu' -> 'ICU'
 
 
 def ruang_pasien(p, default):
@@ -600,7 +608,8 @@ def ruang_pasien(p, default):
     r = str(p.get("r") or "").strip()
     if not r or r == str(p.get("k", "")).strip():
         return default
-    if re.fullmatch(r"(RB|RA|PAV(ILIUN)?\.?|RUANG(AN)?)\s*\d+|\d{3}", r, re.I):
+    if (re.fullmatch(r"(RB|RA|PAV(ILIUN)?\.?|RUANG(AN)?)\s*\d+|\d{3}", r, re.I)
+            or kunci_ruang(r) in {kunci_ruang(x) for x in daftar_ruangan()}):
         return norm_ruang(r)
     if not p.get("k"):
         p["k"] = r  # ternyata nomor bed
@@ -633,7 +642,38 @@ def tgl_pbj_lewat(p, tgl):
     return None
 
 
-URUTAN_RUANG = ["RB1", "Ruang 206", "RA6", "Pav 5", "RB2", "RB3", "RB6", "Pav 6"]  # urutan list asli
+URUTAN_RUANG = ["RB1", "Ruang 206", "RA6", "Pav 5", "RB2", "RB3", "RB6", "Pav 6"]  # ruangan bawaan
+RUANGAN = BASE / "ruangan.json"  # daftar ruangan yang diubah dari web (default URUTAN_RUANG)
+
+
+def kunci_ruang(r):
+    """'RB 1 :', 'rb1', 'Pav. 5' -> 'rb1', 'pav5' (pembanding nama ruangan)."""
+    return re.sub(r"[\s.:*]+", "", str(r or "")).lower()
+
+
+PREFIX_RUANG = ["ra", "rb", "pav", "ruang"]  # urutan kelompok; nama lain (ICU, ...) di belakang, abjad
+
+
+def urutan_ruang(r):
+    """Kunci sort: huruf dulu (RA, RB, Pav, Ruang, lainnya), lalu angka -> RA1, RA2, RA10, RB1, ..."""
+    huruf, angka = re.match(r"(.*?)(\d*)$", kunci_ruang(r)).groups()
+    grup = (PREFIX_RUANG.index(huruf) if huruf in PREFIX_RUANG
+            else len(PREFIX_RUANG) + (not huruf.isalpha()))  # '?' (tanpa ruangan) paling belakang
+    return grup, huruf, int(angka or 0)
+
+
+def daftar_ruangan():
+    """Ruangan yang dikenal sistem, urut seperti di dokumen (urutan_ruang)."""
+    try:
+        xs = [str(x) for x in json.loads(RUANGAN.read_text(encoding="utf-8")) if kunci_ruang(x)]
+    except (OSError, ValueError, TypeError):
+        xs = list(URUTAN_RUANG)
+    return sorted(xs, key=urutan_ruang)
+
+
+def simpan_ruangan(xs):
+    RUANGAN.write_text(json.dumps(list(xs), ensure_ascii=False, indent=1), encoding="utf-8")
+
 
 # batas nilai kritis untuk catatan akhir: nama lab -> (bawah, atas)
 KRITIS = {"hb": (7, None), "leu": (3000, None), "plt": (100000, None), "na": (125, 155),
@@ -715,6 +755,29 @@ def simpan_teks(tgl, teks):
     d.mkdir(parents=True, exist_ok=True)
     (d / f"{tgl.isoformat()}.json").write_text(
         json.dumps([{"nama": n, "teks": t} for n, t in teks], ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+def simpan_data(tgl, data):
+    """Hasil AI per ruangan (sebelum disusun jadi docx) -> riwayat/data/YYYY-MM-DD.json, untuk diedit di web."""
+    d = RIWAYAT / "data"
+    d.mkdir(parents=True, exist_ok=True)
+    (d / f"{tgl.isoformat()}.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+def perbarui_cache(lama, baru):
+    """Tulis hasil edit ke cache per pasien (p['_c']), supaya teks pasien yang sama di hari
+    berikutnya memakai data yang sudah dikoreksi, bukan jawaban AI yang salah.
+    Blok yang semua pasiennya dihapus jadi cache kosong."""
+    grup = {p["_c"]: [] for d in lama for p in d.get("pasien", [])
+            if re.fullmatch(r"p-[0-9a-f]{16}", str(p.get("_c", "")))}
+    for d in baru:
+        for p in d.get("pasien", []):
+            if p.get("_c") in grup:
+                grup[p["_c"]].append({k: v for k, v in p.items() if not k.startswith("_")})
+    for c, ps in grup.items():
+        f = CACHE / f"{c}.json"
+        if f.exists():
+            f.write_text(json.dumps(ps, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 def isi(xs):
@@ -857,7 +920,7 @@ def buat_docx(data_list, tgl, out, hari_baru=2):
             p["st"] = next((s for s in (norm_status(k, tgl) for k in kandidat) if s), "")
             semua.append((ruang_pasien(p, ruang), p))
     ruang_order = list(dict.fromkeys(r for r, _ in semua))
-    ruang_order.sort(key=lambda r: URUTAN_RUANG.index(r) if r in URUTAN_RUANG else len(URUTAN_RUANG))
+    ruang_order.sort(key=urutan_ruang)
     banding = banding_kemarin(semua, tgl)
     simpan_snapshot(semua, tgl)
     if banding:
@@ -996,9 +1059,10 @@ def main():
         model = a.model or ("haiku" if a.engine == "cli" else DEFAULT_MODEL)
         data = proses_file(a.files, tgl, model, a.engine)
         simpan_teks(tgl, [(Path(f).stem, Path(f).read_text(encoding="utf-8", errors="replace")) for f in a.files])
+        simpan_data(tgl, data)
     else:
         ap.error("butuh file .txt atau --from-json")
-    out = a.out or f"/output/List Pasien {tgl.strftime('%d-%m-%Y')}.docx"
+    out = a.out or f"output/List Pasien {tgl.strftime('%d-%m-%Y')}.docx"
     buat_docx(data, tgl, out)
 
 

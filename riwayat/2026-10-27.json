@@ -1,0 +1,504 @@
+{
+ "rm:1016178": {
+  "n": "Nurlen Batubara",
+  "rm": "01016178",
+  "r": "RB6",
+  "k": "302.2",
+  "dpjp": "dr. Budi Irwan, Sp. B-KBD",
+  "jk": "Pr",
+  "u": "55",
+  "tm": "23/10/2026",
+  "dx": "Obs jaundice d/t stricture ampula vater (pasca percutaneus cholecystostomy, unexpected removal) + Hiponatremia (129)",
+  "tl": "26/10",
+  "lab": [
+   "Hb 11.1, Ht 32.3, Leu 5.660, PLT 430.000",
+   "Na 129, K 3.9, Cl 104"
+  ],
+  "pj": [
+   "Foto thorax (23/10): jantung dan paru dalam batas normal",
+   "CT abdomen kontras (10/09): susp massa caput pankreas, penyempitan distal CBD, hepatomegali, ascites, limfadenopati multipel"
+  ],
+  "m": [
+   "!Anemia (Hb 11.1)",
+   "!Hiponatremia (Na 129)",
+   "Obstruksi jaundice ec striktur ampula vater",
+   "Pasca kolesistostomi perkutan, removal tak terencana"
+  ],
+  "p": [
+   "Koreksi natrium lagi"
+  ],
+  "tx": [
+   "IVFD NaCl 0.9% 20gtt/i",
+   "IVFD Tutosol/24 jam",
+   "Inj. Ranitidine/12 jam",
+   "Inj. Peinloss/8 jam",
+   "IVFD PCT/12 jam",
+   "PRC 1 bag (koreksi Hb, selesai)",
+   "NaCl 3% 1 bag gandeng NaCl 0.9% 20gtt/i (koreksi Na)"
+  ],
+  "tx_tgl": ""
+ },
+ "rm:1009516": {
+  "n": "Mellyanora SS",
+  "rm": "01009516",
+  "r": "RB6",
+  "k": "303",
+  "dpjp": "dr. Edwin Saleh Siregar, Sp. B",
+  "jk": "Pr",
+  "u": "47",
+  "tm": "25/10/2026",
+  "to": "26/10/2026",
+  "dx": "Post Laparaskopi drainase abses d/t Liver abscess segmen VII, VIII (POD-1)",
+  "tl": "26/10",
+  "lab": [
+   "Hb 10.3, Ht 30.1, Leu 10.960, PLT 256.000",
+   "Na 145, K 3.5, Cl 118",
+   "Alb 3.80"
+  ],
+  "pj": [
+   "Foto thorax (21/10): tidak tampak kelainan jantung dan paru secara radiologis",
+   "CT abdomen kontras multifase (16/07): sugestif abses subkapsular hepar, kista ginjal kiri, kista ovarium kanan, hidropneumothoraks kanan"
+  ],
+  "m": [
+   "Post laparaskopi drainase abses hepar (POD-1)",
+   "Abses hepar segmen VII-VIII",
+   "!Anemia (Hb 10.3)",
+   "!Klorida tinggi (Cl 118)"
+  ],
+  "tx": [
+   "IVFD RL 20 gtt/i",
+   "IVFD Tutosol/24 jam",
+   "Inj. Seftriakson/12 jam",
+   "IVFD Metronidazole/8 jam",
+   "Inj. Gentamisin/12 jam",
+   "Inj. Ranitidine/12 jam",
+   "Inj. Peinlos/8 jam"
+  ],
+  "tx_tgl": ""
+ },
+ "rm:996724": {
+  "n": "Rudianto Ginting",
+  "rm": "00996724",
+  "r": "RB6",
+  "k": "304.2",
+  "dpjp": "dr. Siti Fathiya, M.Ked(Surg), Sp.B, Subsp. BD(K)",
+  "jk": "Lk",
+  "u": "38",
+  "tm": "21/10/2026",
+  "dx": "Obstruksi jaundice d/t Post Laparotomy Ileostomy Double Barrels (2023) d/t Adeno Ca Colon Ascendens cT4bN2M1 (Nonregional nodes) + Post NAC 12 Cycles (2024) + Trombositopenia (52.000) + Hipokalemia (1.9) + Hiponatremia (126)",
+  "tl": "27/10",
+  "lab": [
+   "Hb 9.4, Ht 26.3, Leu 22.000, PLT 52.000",
+   "Na 126, K 1.9, Cl 100"
+  ],
+  "pj": [
+   "Foto thorax (06/10): tidak tampak kelainan radiologi",
+   "CT abdomen kontras (08/10): massa maligna colon ascenden flexura hepatica, obstruksi CBD distal, hepatomegali, lesi litik CV L2-3 susp bone metastasis, trombus IVC dan V. porta, ascites"
+  ],
+  "m": [
+   "!Anemia (Hb 9.4)",
+   "!Trombositopenia (PLT 52.000)",
+   "!Hipokalemia (K 1.9)",
+   "!Hiponatremia (Na 126)",
+   "Obstruksi jaundice ec Ca colon ascendens",
+   "Adenokarsinoma colon ascendens cT4bN2M1",
+   "Post NAC 12 siklus"
+  ],
+  "p": [
+   "Konsul TS Gizi",
+   "Konsul TS Interna Endokrin",
+   "Koreksi natrium dan kalium",
+   "Transfusi 5 bag TC"
+  ],
+  "tx": [
+   "IVFD NaCl 0.9% 20 tpm",
+   "IVFD Tutosol/24 jam",
+   "Inj. Ranitidin 50 mg/12 jam",
+   "Inj. Ketorolac 30 mg/8 jam",
+   "Inj. Vit K/24 jam",
+   "Inj. Traneksamat/8 jam",
+   "KSR 3x1",
+   "PRC 1 bag (koreksi Hb, selesai)",
+   "KCl 2 fls 25 cc dalam D5% 10 tpm (koreksi K)",
+   "NaCl 3% 2 fls 10 tpm gandeng NaCl 0.9% 20 tpm (koreksi Na)"
+  ],
+  "tx_tgl": ""
+ },
+ "rm:1020713": {
+  "n": "Legimin",
+  "rm": "01020713",
+  "r": "RB6",
+  "k": "304.3",
+  "dpjp": "dr. Safruddin, Sp. B-KBD",
+  "jk": "Lk",
+  "u": "59",
+  "tm": "12/10/2026",
+  "dx": "Tumor Pain + Liver Tumor Susp. Hepatocellular Carcinoma (HCC) dd. Hepatoma cT2N0M0",
+  "tl": "21/10",
+  "lab": [
+   "HbsAg NR, Anti HCV NR",
+   "HIV NR",
+   "SGOT 86, SGPT 31"
+  ],
+  "pj": [
+   "Foto thorax (12/10): efusi pleura kanan, elevasi hemidiafragma kanan",
+   "CT abdomen multifase (23/10): diffuse infiltrative HCC hilus-kedua lobus hepar, tumoral thrombus V. porta sampai v. lienalis distal, sirosis hepatis, early portal hypertension, ascites. Saran: TACI"
+  ],
+  "m": [
+   "Susp HCC diffuse infiltrative",
+   "Trombus tumor vena porta",
+   "Sirosis hepatis, early portal hypertension",
+   "Ascites",
+   "Efusi pleura kanan",
+   "!SGOT tinggi (86)",
+   "Tumor pain"
+  ],
+  "tx": [
+   "IVFD RL 20 gtt/i",
+   "IVFD Tutosol/24 jam",
+   "Inj. Ranitidine/12 jam",
+   "Inj. Ketorolac/8 jam (sudah 5 hari)",
+   "IVFD Metronidazole 500 mg/8 jam",
+   "Inj. Gentamicin/12 jam",
+   "Inj. Deksamethasone/12 jam",
+   "Inj. Seftriakson 1 gr/12 jam (tidak acc farmasi)",
+   "PRC 2 bag (koreksi Hb, done)",
+   "Inj. Furosemide 20 mg/8 jam (naik dari 12 jam)",
+   "Spironolakton 1x100 mg",
+   "NAC 3x200 mg",
+   "Kodein tab 3x20 mg PO",
+   "Gabapentin 2x100 mg PO",
+   "Paracetamol AFF"
+  ],
+  "tx_tgl": "",
+  "d": [
+   "ML 1900 kkal"
+  ],
+  "d_tgl": ""
+ },
+ "rm:917334": {
+  "n": "Nursita",
+  "rm": "00917334",
+  "r": "RB6",
+  "k": "307.1",
+  "dpjp": "dr. Budi Irwan, Sp. B-KBD",
+  "jk": "Pr",
+  "u": "52",
+  "tm": "24/10/2026",
+  "dx": "Adenocarcinoma Recti 8 cm ACL rycT4bN1M0 + Post Hartmann's Procedure (May 2026) + Post Neoadjuvant Chemotherapy (FOLFOX-4 Regiment) 10 cycles + Anemia (6.1)",
+  "tl": "23/10",
+  "lab": [
+   "Hb 6.1, Ht 19.3, Leu 7.020, PLT 145.000",
+   "Na 137, K 2.5, Cl 100",
+   "Ur 19, Cr 0.74, eGFR 96.97",
+   "GDS 103"
+  ],
+  "m": [
+   "!Anemia berat (Hb 6.1)",
+   "!Hipokalemia (K 2.5)",
+   "Adenokarsinoma recti cT4bN1M0",
+   "Post Hartmann (Mei 2026)",
+   "Post kemoterapi FOLFOX-4 10 siklus"
+  ],
+  "p": [
+   "Transfusi 3 bag PRC → sisa 1 bag"
+  ],
+  "tx": [
+   "IVFD RL 20gtt/i",
+   "IVFD Tutosol/24 jam",
+   "IVFD Ranitidine/12 jam",
+   "IVFD Ketorolac/8 jam",
+   "PRC sudah masuk 2 bag (koreksi Hb 3 bag)"
+  ],
+  "tx_tgl": ""
+ },
+ "rm:1008432": {
+  "n": "Cesilia Helvani Sembiring",
+  "rm": "01008432",
+  "r": "RB6",
+  "k": "308.2",
+  "dpjp": "dr. Adi Muradi Muhar, Sp.B-KBD",
+  "jk": "Pr",
+  "u": "27",
+  "tm": "26/10/2027",
+  "to": "27/10/2027",
+  "st": "Pro Op hari ini: Hepaticojejunostomy bypass + Roux en Y reconstruction",
+  "dx": "Post ERCP a/i striktur CBD (September 2026) Post ERCP Obstruksi medial CBD (april 2026) Bile Duct Injury + Post Explore CBD (April 2026) d/t Choledocholithiasis",
+  "tl": "21/10",
+  "lab": [
+   "Hb 12.0, Ht 34.8, Leu 10.690, PLT 361.000",
+   "Bil total 11.80, Bil direk 9.09",
+   "Alb 4.23",
+   "Amilase 27, Lipase 29",
+   "GDS 144",
+   "Na 143, K 3.8, Cl 111",
+   "AFP 0.91, CA 19-9 71.10",
+   "PT 11.4, APTT 30.1, INR 1.06"
+  ],
+  "pj": [
+   "Foto thorax (21/10): tidak tampak kelainan jantung dan paru secara radiologis",
+   "ERCP (23/09): diagnostik a/i striktur CBD",
+   "CT abdomen kontras (05/10): biliary ectasis susp striktur proksimal CBD, hepatomegali, kista ovarium bilateral"
+  ],
+  "m": [
+   "!Bilirubin tinggi (11.80)",
+   "!CA 19-9 tinggi (71.10)",
+   "Striktur CBD post ERCP dan explore",
+   "Bile duct injury",
+   "Riwayat choledocholithiasis"
+  ],
+  "p": [
+   "Rencana: Hepaticojejunostomy bypass + Roux en Y reconstruction"
+  ],
+  "tx": [
+   "IVFD RL 20 gtt/i",
+   "IVFD Smofkabiven/24 jam",
+   "IVFD Tutosol/24 jam",
+   "Inj. Seftriakson/12 jam",
+   "IVFD Metronidazole/8 jam",
+   "Inj. Gentamisin/12 jam",
+   "Inj. Ranitidine/12 jam",
+   "Inj. Peinlos/8 jam"
+  ],
+  "tx_tgl": ""
+ },
+ "rm:959817": {
+  "n": "Lambok Sinaga",
+  "rm": "00959817",
+  "r": "RB6",
+  "k": "3.10.2",
+  "dpjp": "dr. Adi Muradi Muhar, Sp.B-KBD",
+  "jk": "Lk",
+  "u": "55",
+  "tm": "26/10/2027",
+  "to": "27/10/2027",
+  "st": "Pro Op hari ini",
+  "dx": "Post Ileoileal anastomosis d/t Post Ileostomy double barrel d/t volvulus + Anemia (9.5)",
+  "tl": "27/10",
+  "lab": [
+   "Hb 9.5, Ht 30.0, Leu 14.090, PLT 367.000"
+  ],
+  "pj": [
+   "CT abdomen kontras (26/10): susul bacaan"
+  ],
+  "m": [
+   "!Anemia (Hb 9.5)",
+   "Post ileoileal anastomosis",
+   "Post ileostomi double barrel d/t volvulus"
+  ],
+  "p": [
+   "Transfusi 1 bag PRC",
+   "Susul bacaan CT Scan"
+  ]
+ },
+ "rm:949179": {
+  "n": "Adysasnara Simanullang",
+  "rm": "00949179",
+  "r": "RB6",
+  "k": "3.12.2",
+  "dpjp": "dr. Safruddin, Sp. B-KBD",
+  "jk": "Lk",
+  "u": "60",
+  "tm": "26/10/2027",
+  "dx": "Adenocarcinoma Recti 3cm ACL cT4N1M0 + Post NAC 12 cycle on Ileostoma + Susp Fistul Rektovesika + Anemia (7.1)",
+  "tl": "23/10",
+  "lab": [
+   "Hb 7.1, Ht 21.9, Leu 6.090, PLT 294.000"
+  ],
+  "pj": [
+   "CT abdomen kontras (14/10): fluid collection ±15 mL antara prostat dan rektum, susp abses, susp fistula rektovesika; saran fistulografi/MR fistulografi",
+   "CT abdomen kontras (14/10): kolelitiasis multipel dengan kolesistitis akut, hidrops GB, asites, efusi pleura bilateral, sistitis"
+  ],
+  "m": [
+   "!Anemia berat (Hb 7.1)",
+   "Adenokarsinoma recti cT4N1M0",
+   "Susp fistula rektovesika",
+   "Kolesistitis akut, kolelitiasis multipel",
+   "Asites, efusi pleura bilateral"
+  ],
+  "p": [
+   "Transfusi 3 bag PRC → sisa 2 bag",
+   "Konsul TS Gizi",
+   "Konsul urologi untuk sistoskopi setelah perbaikan KU",
+   "Neoadjuvant kemoterapi FOLFIRI 8 siklus",
+   "Sinar 5x5 gray shortening"
+  ],
+  "tx": [
+   "IVFD NaCl 0.9% 20gtt/i",
+   "IVFD Tutosol/24 jam",
+   "Inj. Ranitidine/12 jam",
+   "Inj. Dexamethasone/12 jam"
+  ],
+  "tx_tgl": "",
+  "d": [
+   "MB"
+  ],
+  "d_tgl": ""
+ },
+ "rm:1012153": {
+  "n": "Linda Sinaga",
+  "rm": "01012153",
+  "r": "RB6",
+  "k": "3.13.2",
+  "dpjp": "dr. Adi Muradi, Sp. B-KBD",
+  "jk": "Pr",
+  "u": "57",
+  "tm": "14/10/2026",
+  "dx": "High grade adenocarcinoma recti 10cm ACL cT3N2bM1 (liver) + Post kemoterapi siklus ke-3. Regimen FOLFOX 6 + Trombositopenia (50.000)",
+  "tl": "26/10",
+  "lab": [
+   "Hb 11.6, Ht 35.4, Leu 26.960, PLT 50.000"
+  ],
+  "m": [
+   "!Trombositopenia (PLT 50.000)",
+   "!Anemia (Hb 11.6)",
+   "!Leukositosis (Leu 26.960)",
+   "High grade adenokarsinoma recti cT3N2bM1",
+   "Metastasis hepar",
+   "Post kemoterapi siklus 3 FOLFOX 6"
+  ],
+  "p": [
+   "Menunggu advis HOM",
+   "Koreksi sesuai TS HOM",
+   "Transfusi 1 bag Trombosit Apharesis (PLT 50.000) → HOLD, tunggu advis HOM",
+   "Kemoterapi siklus ke-4, regimen FOLFOX 6 setelah perbaikan KU"
+  ],
+  "tx": [
+   "IVFD RL 20gtt/i",
+   "IVFD Tutosol/24 jam",
+   "Inj. Ranitidine/12 jam",
+   "Inj. Ketorolac/8 jam (sudah 5 hari)",
+   "Inj. Deksamethasone/12 jam",
+   "Inj. Leukogen 1 amp/24 jam selama 3 hari (H3, selesai)",
+   "Inj. Dexametason 40 mg/24 jam selama 3 hari (konfirmasi DPJP)",
+   "PRC 5 bag (koreksi Hb, selesai)",
+   "Acc rawat bersama dr. Andry Iskandar Mardia, Sp.PD, K-HOM"
+  ],
+  "tx_tgl": "",
+  "d": [
+   "ML 2100 kkal"
+  ],
+  "d_tgl": ""
+ },
+ "rm:1022361": {
+  "n": "Nayla Hayati",
+  "rm": "01022361",
+  "r": "RB6",
+  "k": "3.13.3",
+  "dpjp": "dr. Budi Irwan, Sp. B-KBD",
+  "jk": "Pr",
+  "u": "20",
+  "tm": "24/10/2026",
+  "dx": "abdominal discomfort + High grade adenocarcinoma recti 2cm ACL cT3N0M0 + hiponatremia (126) + hipokalemia (2.4)",
+  "tl": "26/10",
+  "lab": [
+   "Hb 12.6, Ht 37.3, Leu 11.630, PLT 158.000",
+   "Na 126, K 2.4, Cl 110"
+  ],
+  "m": [
+   "!Hiponatremia (Na 126)",
+   "!Hipokalemia (K 2.4)",
+   "High grade adenokarsinoma recti cT3N0M0",
+   "Abdominal discomfort"
+  ],
+  "p": [
+   "Koreksi kalium dan natrium lagi"
+  ],
+  "tx": [
+   "IVFD NaCl 0.9% 20gtt/i",
+   "IVFD Tutosol/24 jam",
+   "IVFD Ranitidine/12 jam",
+   "IVFD Ketorolac/8 jam",
+   "KCl 1 fls 25 cc gandeng glukosa 5% 10 tpm (koreksi K)",
+   "NaCl 3% 2 fls gandeng NaCl 0.9% (koreksi Na)"
+  ],
+  "tx_tgl": ""
+ },
+ "rm:1012412": {
+  "n": "Latipah Hanum",
+  "rm": "01012412",
+  "r": "RB6",
+  "k": "3.14.1",
+  "dpjp": "dr. Budi Irwan, Sp.B-KBD",
+  "jk": "Pr",
+  "u": "57",
+  "tm": "20/10/2026",
+  "dx": "Adenocarcinoma recti +post Kemoterapi siklus 5 regimen FOLFOX 6 + trombositopenia (82.000)",
+  "tl": "25/10",
+  "lab": [
+   "Hb 12.1, Ht 37.3, Leu 14.960, PLT 82.000"
+  ],
+  "m": [
+   "!Trombositopenia (PLT 82.000)",
+   "!Leukositosis (Leu 14.960)",
+   "Adenokarsinoma recti",
+   "Post kemoterapi siklus 5 FOLFOX 6"
+  ],
+  "p": [
+   "Transfusi 5 TC (PLT 82.000) → susul UTD",
+   "Kemoterapi siklus 6, regimen FOLFOX 6 setelah perbaikan KU"
+  ],
+  "tx": [
+   "IVFD RL 20gtt/i",
+   "IVFD Tutosol/24 jam",
+   "Inj. Ranitidine/12 jam",
+   "Inj. Ketorolac/8 jam",
+   "Inj. Dexamethasone/12 jam",
+   "Inj. Leukogen 1 amp/24 jam selama 3 hari (H3, selesai)",
+   "PRC 1 bag (koreksi Hb, selesai)",
+   "TC 10 bag (transfusi TC aferesis 200 ml sudah selesai)"
+  ],
+  "tx_tgl": "",
+  "d": [
+   "MB 1500 kkal"
+  ],
+  "d_tgl": ""
+ },
+ "rm:1008374": {
+  "n": "Nurwali Dani",
+  "rm": "01008374",
+  "r": "RB6",
+  "k": "3.15.1",
+  "dpjp": "dr. Safruddin, Sp. B-KBD",
+  "jk": "Pr",
+  "u": "39",
+  "tm": "21/10/2026",
+  "dx": "Post Gastrostomy Feeding d/t Disfagia d/t Stenosis Esofagus dd Achalasia + Susp TB Paru Kasus Baru + Hipokalemia (2.9)",
+  "tl": "25/10",
+  "lab": [
+   "Na 134, K 2.9, Cl 113"
+  ],
+  "pj": [
+   "CT esofagografi (22/10): sugestif intususepsi duodenum pars II-III disertai gastric outlet obstruction; esofagus dalam batas normal",
+   "Foto thorax (21/10): tidak tampak kelainan jantung paru secara radiologis",
+   "Foto abdomen (21/10): tidak tampak ileus maupun perforasi"
+  ],
+  "m": [
+   "!Hipokalemia (K 2.9)",
+   "Disfagia, stenosis esofagus dd achalasia",
+   "Post gastrostomy feeding",
+   "Susp TB paru kasus baru",
+   "Susp intususepsi duodenum, gastric outlet obstruction"
+  ],
+  "p": [
+   "Rencana TCM dan kultur sputum",
+   "Koreksi kalium lagi"
+  ],
+  "tx": [
+   "IVFD NaCl 0.9% 20 gtt/i",
+   "IVFD Tutosol/24 jam",
+   "Inj. Ranitidine/12 jam",
+   "Inj. Ketorolac/8 jam",
+   "KSR 3x1",
+   "KCl 1 fls 25 cc dalam D5% 10 tpm (koreksi K, sedang dipasang)",
+   "NaCl 3% 1 fls 10 tpm gandeng NaCl 0.9% 20 tpm (koreksi Na, selesai)",
+   "Nebul NaCl 3% 3 cc (induksi sputum, selesai)",
+   "NAC 3x200 mg"
+  ],
+  "tx_tgl": "",
+  "d": [
+   "BTS 1300 kkal"
+  ],
+  "d_tgl": ""
+ }
+}
